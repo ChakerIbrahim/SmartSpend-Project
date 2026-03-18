@@ -88,6 +88,7 @@ body {
 
 .avatar-s {
     height: 64px;
+    border-radius: 50%;
 }
 
 .user-name {
