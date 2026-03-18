@@ -2,61 +2,63 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Dojonary</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dojonary</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+
 </head>
 
 <body>
-    <header class="Profile-header">
-        <h1>Dojonary</h1>
-        <input type="search" name="Search" id="Search" class="Serch-btn" placeholder="Search">
-        <button class="login-btn">Login</button>
-    </header>
-
-    <section class="main-grid">
-        <div class="entries">
-            <article class="entry-card">
-                <h1 class="entry-word">ninja</h1>
-                <p class="entry-pos">noun</p>
-                <div class="entry-plural">Plural: ninjas</div>
-
-                <div class="entry-layout">
-                    <div>
-                        <button class="like-btn">13 likes</button>
-                    </div>
-                    <div class="definition">
-                        A practitioner skilled in the
-                        <a href="#">Japanese</a> art of
-                        <a href="#">ninjutsu</a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="entry-card">
-                <h1 class="entry-word">ninja</h1>
-                <p class="entry-pos">noun</p>
-                <div class="entry-plural">Plural: ninjas</div>
-
-                <div class="entry-layout">
-                    <div>
-                        <button class="like-btn">37 likes</button>
-                    </div>
-                    <div class="definition">
-                        A <a href="#">programmer</a> who breaks
-                        down problems with <a href="#">zen-like</a>
-                        focus
-                    </div>
-                </div>
-            </article>
+  <header>
+    <div class="page">
+      <header class="topbar">
+        <h1 class="brand">Dojonary</h1>
+        <div class="search-wrap">
+          <input class="search" type="text" placeholder="Search" aria-label="Search" />
         </div>
+        <button onclick="loginOut(this)" class="login-btn">Login</button>
+      </header>
 
-        <aside class="side-card">
-            <h2>Dojonary is defined by YOU</h2>
-            <button class="green-btn" id="addBtn">Add Definition</button>
+      <main class="content">
+        <section class="entries">
+          <article class="entry">
+            <div>
+              <h2 class="word">ninja</h2>
+              <p class="part-of-speech">noun</p>
+              <div class="plural">Plural: <span>ninjas</span></div>
+              <button class="like-btn" onclick="alert('Ninja was liked')">13 likes</button>
+            </div>
+            <p class="definition">
+              A practitioner skilled in the
+              <a href="#">Japanese</a>
+              art of
+              <a href="#">ninjutsu</a>
+            </p>
+          </article>
+
+          <article class="entry">
+            <div>
+              <h2 class="word">ninja</h2>
+              <p class="part-of-speech">noun</p>
+              <div class="plural">Plural: <span>ninjas</span></div>
+              <button class="like-btn" onclick="alert('Ninja was Liked')">37 likes</button>
+            </div>
+            <p class="definition">
+              A <a href="#">programmer</a> who breaks down problems with <a href="#">zen</a>-like focus
+            </p>
+          </article>
+        </section>
+
+        <aside>
+          <div class="side-card">
+            <h2>Dojonary is defined by <strong>YOU</strong></h2>
+            <button class="action-btn" onclick="removeBtn(this)">Add Definition</button>
+          </div>
         </aside>
-    </section>
+      </main>
+    </div>
 
 </body>
 
