@@ -15,9 +15,8 @@ console.log(removeBlanks("I can not BELIEVE it's not BUTTER"));
 function getDigits(str) {
     var result = "";
     for (var i = 0; i < str.length; i++) {
-        var char = str[i];
-        if (char >= "0" && char <= "9") {
-            result += char;
+        if (str[i] >= "0" && str[i] <= "9") {
+            result += str[i];
         }
     }
     return Number(result);  //change it to number//

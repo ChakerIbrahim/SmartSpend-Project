@@ -1,0 +1,116 @@
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f3f3f3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 900px;
+      margin: 0 auto;
+      padding: 20px 30px;
+    }
+
+    .topbar {
+      background: black;
+      color: white;
+      font-size: 32px;
+      padding: 15px 25px;
+      font-weight: bold;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 40px;
+      margin: 25px 0;
+    }
+
+    .content {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .profile-card {
+      width: 200px;
+      border: 4px solid black;
+      background: white;
+      text-align: center;
+      padding: 20px 15px;
+    }
+
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+    
+    
+    }
+
+    .profile-card a {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #1a5fb4;
+      font-size: 20px;
+    }
+
+    .profile-card h2 {
+      margin: 0;
+      font-size: 36px;
+      font-weight: normal;
+    }
+
+    .feed {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .post {
+      border: 4px solid black;
+      background: white;
+      padding: 20px;
+    }
+
+    .post-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .post-name {
+      font-size: 34px;
+    }
+
+    .likes-area {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 24px;
+    }
+
+    .like-btn {
+      background: #ffd966;
+      border: 3px solid black;
+      padding: 8px 18px;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 4px 4px 0 black;
+      cursor: pointer;
+    }
+
+    .post p {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.4;
+    }
+
+    .post a {
+      color: #1a5fb4;
+    }
