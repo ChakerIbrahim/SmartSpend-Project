@@ -1,8 +1,6 @@
 
 //Reverse a String//
 
-var name = "Hello";
-
 function reverseString(string) {
     var newString = "";
     for (var i = string.length - 1; i >= 0; i--) {
@@ -11,9 +9,7 @@ function reverseString(string) {
     return newString;
 }
 
-var newString = reverseString(name);
-
-console.log(newString)
+console.log(reverseString("Hello"))
 
 //Count Vowels//
 
@@ -60,7 +56,7 @@ function longestWord(sentence) {
 
     return longest;
 }
-
+console.log(longestWord(["jalil","lina","rayn","hi"]))
 //////////////////////////////////////
 //Convert a Letter Grade to Feedback//
 

@@ -1,19 +1,19 @@
 
 let editLink = document.querySelector("#editProfile");
 let userName = document.querySelector("#name");
-let requestBadge = document.querySelector(".col-1 .card:first-child .badge");
-let connectionBadge = document.querySelector(".col-1 .card:nth-child(2) .badge");
-//change Name
-editLink.addEventListener("click", function (e) {
+let requestBadge = document.querySelector(".badge1");
+let connectionBadge = document.querySelector(".badge2");
+
+editLink.addEventListener("click", function() {
     let newName = prompt("Enter a new name:");
-    if (newName !== "" ) {
+    if (newName !== "" && newName !== null) {
         userName.innerText = newName;
     }
 });
 
-// accept request
+
 function accept(element) {
-    console.log("hello")
+    
     let listItem = element.parentElement.parentElement;
     listItem.remove();
 
@@ -22,7 +22,7 @@ function accept(element) {
     
 }
 
-// remove request
+
 function unaccept(element) {
     let listItem = element.parentElement.parentElement;
     listItem.remove();

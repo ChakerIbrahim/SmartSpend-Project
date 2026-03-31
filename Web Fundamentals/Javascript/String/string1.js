@@ -65,3 +65,10 @@ console.log(removeShorterStrings(
 console.log(removeShorterStrings(
 ['There', 'is', 'a', 'bug', 'in', 'the', 'system'], 3));
 
+let arr = [1,2,3,1,4];
+
+arr.forEach(function(num, index) {
+  if (arr.indexOf(num) !== index) {
+    console.log(num);
+  }
+});
