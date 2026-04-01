@@ -21,6 +21,7 @@ body {
   color: white;
   padding: 20px 0;
   margin-bottom: 25px;
+  
 }
 
 .nav-content {
@@ -103,7 +104,7 @@ body {
 
 .temps {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   padding: 0 18px;
   font-size: 34px;
   font-weight: bold;
