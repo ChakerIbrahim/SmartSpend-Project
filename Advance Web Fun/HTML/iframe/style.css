@@ -1,0 +1,37 @@
+   * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: antiquewhite;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px 40px;
+    }
+
+    section {
+      background-color: whitesmoke;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #1f4e79;
+    }
+
+
+    iframe {
+      border: 0;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 100%;
+    }
+
