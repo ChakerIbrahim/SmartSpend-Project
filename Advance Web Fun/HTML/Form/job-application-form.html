@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <form action="">
+            <h1>Job Application Form</h1>
+
+            <label for="name">Full Name:</label>
+            <input type="text" title="Enter you full name">
+
+            <label for="email">Email Address:</label>
+            <input type="email" title="example@gmail.com">
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" name="PhoneNumber" required pattern="[0-9]">
+
+            <label for="Experience">Years of Experience:</label>
+            <input type="number" min="0" max="40" title="Enter Years Between 0 to 40">
+
+            <fieldset>
+                <legend>Preferred Work Type</legend>
+
+                <label>
+                    <input type="radio" name="work"> Remote
+                </label>
+
+                <label>
+                    <input type="radio" name="work">onsite
+                </label>
+
+                <label>
+                    <input type="radio" name="work"> Hybrid
+                </label>
+            </fieldset>
+
+            <label for="CV">Upload CV (PDFonly)</label>
+            <input type="file" name="cv" id="cv" accept=".pdf" title="Upload your CV in PDF format">
+
+            <label for="CoverLetter">Cover Letter:</label>
+            <textarea name="coverletter" title="Write a short introduction about yourself" rows="4"></textarea>
+            
+            <label for="salary">Salary Expectation:</label>
+            <input type="range" id="salary" min="1000" max="10000" step="500" value="3000"
+                oninput="document.getElementById('salaryValue').innerText = this.value" />
+            <p>Selected Salary: <span id="salaryValue">$3000</span></p>
+
+            <label for="start date">Available Start Date:</label>
+            <input type="date" name="Starting Date">
+
+            <button type="submit" class="submit">Submit Application</button>
+            <button type="reset" class="reset">Reset</button>
+
+        </form>
+
+
+        <script></script>
+</body>
+
+</html>
