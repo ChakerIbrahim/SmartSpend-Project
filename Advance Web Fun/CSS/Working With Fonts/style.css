@@ -1,3 +1,7 @@
+h1{
+    font-family: myFirstFont;
+    font-style: italic;
+}
 
 .mystery-quest-regular {
   font-family: "Mystery Quest", system-ui;
@@ -23,11 +27,7 @@
   font-style: italic;
 }
 
-h1{
-    font-family: myFirstFont;
-    font-style: italic;
-}
 
-body{
+.mono-text{
     font-family: 'Courier New', Courier, monospace;
 }
