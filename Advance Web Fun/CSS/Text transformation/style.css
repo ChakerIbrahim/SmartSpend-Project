@@ -1,0 +1,55 @@
+body {
+    margin: 30px auto;
+    padding: 20px 40px;
+    max-width: 1000px;
+}
+
+p {
+    border: 2px solid black;
+    font-size: 2rem;
+    padding: 25px;
+}
+
+h1 {
+    text-align: center;
+    border: 2px solid black;
+}
+
+.first-paragraph {
+    text-transform: none;
+    background-color: black;
+    color: white;
+}
+
+.second-paragraph {
+    text-transform: capitalize;
+    background: blue;
+    color: yellow;
+}
+
+.third-paragraph {
+    text-transform: uppercase;
+    background-color: green;
+    color: aqua;
+}
+
+.forth-paragraph {
+    text-transform: lowercase;
+    background-color: antiquewhite;
+    color: darkblue;
+}
+
+.first-space-letter {
+    background-color: aqua;
+    letter-spacing: 6px;
+}
+
+.second-space-letter {
+    word-spacing: 100px;
+    background-color: yellow;
+}
+
+.third-space-letter {
+    line-height: 500px;
+    background-color: blanchedalmond;
+}
