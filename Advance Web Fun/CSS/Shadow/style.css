@@ -1,0 +1,96 @@
+  *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#e5e7eb;
+      display:flex;
+      min-height:100vh;
+    }
+
+    .sidebar{
+      width:240px;
+      background:#1e293b;
+      color:#fff;
+      padding:20px;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+      box-shadow:4px 0 12px blue;
+    }
+
+    .sidebar h1{
+      font-size:20px;
+      text-shadow:0 2px 4px blue;
+    }
+
+    .menu{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .menu a{
+      text-decoration:none;
+      color:#cbd5f5;
+      padding:10px;
+      border-radius:8px;
+    }
+
+    .menu a.active{
+      background:#3b82f6;
+      color:#fff;
+      box-shadow:0 4px 10px red;
+    }
+
+    .main{
+      flex:1;
+      padding:30px;
+    }
+
+    .bold-para{
+        font-weight: 700;
+    }
+
+    .title{
+      font-size:22px;
+      margin-bottom:20px;
+      text-shadow:1px 1px 2px #fff, 2px 2px 4px blue;
+    }
+
+    .cards{
+      display:flex;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .card{
+      background:#fff;
+      padding:20px;
+      border-radius:12px;
+      width:220px;
+    }
+
+    .card.soft{
+      box-shadow: 5px 4px 10px red;
+    }
+
+    .card.deep{
+      box-shadow:0 10px 25px yellow;
+    }
+
+    .card.layered{
+      box-shadow: 2px 1px 1px blue;
+    }
+
+    .card.inset{
+      box-shadow:inset 2px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .card h3{
+      margin-top:10px;
+    }
+
+    .highlight{
+      color:#e11d48;
+      text-shadow:0 6px 4px rgba(149, 27, 53, 0.4);
+    }
