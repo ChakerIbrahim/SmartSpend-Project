@@ -1,0 +1,75 @@
+   * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #dff6ff, #f4ecff);
+      padding: 40px 20px;
+      color: #222;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section h1 {
+      font-size: 2.2rem;
+      color: #2d2a6e;
+      margin-bottom: 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 18px;
+      padding: 20px;
+     
+    }
+
+    .avatar {
+      width: 170px;
+      height: 170px;
+      margin: 0 auto 16px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      
+    }
+
+
+    .mask-circle {
+      -webkit-mask-image: radial-gradient(circle, black 68%, transparent 70%);
+      mask-image: radial-gradient(circle, black 68%, transparent 70%);
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+    }
+
+    .mask-rounded {
+      -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='8' y='8' width='84' height='84' rx='24' ry='24' fill='black'/></svg>");
+      mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='8' y='8' width='84' height='84' rx='24' ry='24' fill='black'/></svg>");
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+      mask-size: cover;
+      -webkit-mask-position: center;
+      mask-position: center;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      color: #2d2a6e;
+      margin-bottom: 8px;
+    }
+
