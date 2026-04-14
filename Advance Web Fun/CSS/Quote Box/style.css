@@ -9,24 +9,14 @@
    }
 
    .quote-box {
-       position: relative;
        width: 600px;
        padding: 30px 40px;
        background: #fff;
        border-radius: 10px;
+       border-left: 6px solid #2f80ed;
        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
    }
 
-   .quote-box::before {
-       content: "";
-       position: absolute;
-       left: 0;
-       top: 0;
-       height: 100%;
-       width: 6px;
-       background: #2f80ed;
-       border-radius: 10px 0 0 10px;
-   }
 
    p {
        line-height: 1.6;
@@ -47,8 +37,8 @@
    p::after {
        content: "”";
        position: absolute;
-       bottom: -20px;
        right: -10px;
+       top:50px ;
        font-size: 40px;
        color: #2f80ed;
    }

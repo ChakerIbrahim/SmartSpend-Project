@@ -53,16 +53,16 @@ h1 {
 }
 
 .press-btn:active {
-   background-color: pink;
+    background-color: pink;
 }
 
 .focus-btn {
-      background-color: #f39c12;
-    }
+    background-color: #f39c12;
+}
 
-    .focus-btn:focus {
-      border: 3px solid #333;
-    }
+.focus-btn:focus {
+    border: 3px solid #333;
+}
 
 .grow-btn {
     background-color: #1fa463;
@@ -74,6 +74,6 @@ h1 {
 
 .disabled-btn {
     background-color: #bfc5c9;
-    
+
 
 }
