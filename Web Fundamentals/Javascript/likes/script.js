@@ -4,3 +4,8 @@ function addLike(element) {
   currentLikes++;
   likeText.innerText = currentLikes + " like(s)";
 }
+
+
+
+
+
