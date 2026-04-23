@@ -11,7 +11,7 @@ body {
 }
 
 .container {
-  width: 1000px;
+  width: 1200px;
   max-width: 90%;
   margin: 0 auto;
 }
@@ -111,11 +111,11 @@ body {
 }
 
 .high {
-  color: #d93636;
+  color: red;
 }
 
 .low {
-  color: #2d6cdf;
+  color: blueviolet;
 }
 
 .cookie-box {

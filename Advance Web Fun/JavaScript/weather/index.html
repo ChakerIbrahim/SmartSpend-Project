@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DojoWeather</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <nav class="navbar">
@@ -25,7 +27,7 @@
 
       <div class="unit-control">
         <label for="unit">show temperature in</label>
-        <select id="unit" onchange="convertTemps()">
+        <select id="unit" onchange="convertTemps(this.value)">
           <option value="c">°C</option>
           <option value="f">°F</option>
         </select>
@@ -58,8 +60,8 @@
         <img src="some_clouds.png" alt="some clouds" class="weather-icon">
         <p>some clouds</p>
         <div class="temps">
-          <span class="high temp" data-c="21">21°</span>
-          <span class="low temp" data-c="16">16°</span>
+          <span class="high temp">21°</span>
+          <span class="low temp">16°</span>
         </div>
       </div>
 
@@ -68,8 +70,8 @@
         <img src="some_sun.png" alt="some sun" class="weather-icon">
         <p>some sun</p>
         <div class="temps">
-          <span class="high temp" data-c="26">26°</span>
-          <span class="low temp" data-c="21">21°</span>
+          <span class="high temp">26°</span>
+          <span class="low temp">21°</span>
         </div>
       </div>
     </section>
@@ -93,4 +95,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>

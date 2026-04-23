@@ -181,6 +181,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+  
 }
 
 /* Cards */
@@ -202,19 +203,6 @@ body {
 }
 
 /* overlay */
-
-.story-card::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.9),
-      transparent);
-  opacity: 0;
-  transition: .4s;
-  z-index: 1;
-}
 
 .story-title {
   position: absolute;
@@ -245,8 +233,8 @@ body {
 
 /* Featured */
 
-.featured::after {
-  content: "Featured";
+.heroPick::after {
+  content: "Hero Pick 🔥";
   position: absolute;
   top: 10px;
   left: 10px;

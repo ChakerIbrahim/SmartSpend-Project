@@ -44,6 +44,7 @@ body {
     background:red;
     color: yellow;
   }
+
 }
 
 @media (max-width: 450px) {
@@ -119,6 +120,10 @@ footer {
   border-radius: 12px;
 }
 
-.big {
+.box:nth-child(1) {
+  grid-column: span 3;
+}
+
+.box:nth-child(4){
   grid-column: span 2;
 }
