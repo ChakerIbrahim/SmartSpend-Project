@@ -72,3 +72,19 @@ arr.forEach(function(num, index) {
     console.log(num);
   }
 });
+
+
+     function removeSpaces(str) {
+        let result = "";
+        for(i = 0 ; i < str.length; i++){
+            if(str[i] != " "){
+             result+=str[i];
+            }
+        }
+       return result; 
+    }
+    
+
+
+console.log(removeSpaces("g eeks for ge eks"));
+console.log(removeSpaces("abc d"));
