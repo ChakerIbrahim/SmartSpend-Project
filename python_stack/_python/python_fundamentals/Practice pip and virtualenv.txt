@@ -1,0 +1,42 @@
+Pip & Virtual Environment Practice
+
+1. pip list
+This command shows all installed Python packages in the current environment.
+When I ran it inside the virtual environment, I saw only a few packages like pip and setuptools.
+
+2. deactivate
+This command deactivates the virtual environment.
+After running it, the environment name disappeared from the terminal prompt.
+
+3. pip list (after deactivate)
+When I ran pip list again, I noticed many more packages.
+This is because it shows global Python packages instead of the isolated virtual environment.
+
+4. Activate Environment
+Windows: call myEnvironments/py3Env/Scripts/activate
+This command activates the virtual environment again.
+I knew it worked because the environment name appeared in the terminal.
+
+5. pip install Django
+This command installs the Django framework.
+The terminal showed downloading, installing, and success messages.
+It also showed the version installed.
+
+6. pip freeze
+This command lists installed packages with exact versions in a format used for requirements files.
+Difference from pip list:
+- pip list shows a table format
+- pip freeze shows package==version format
+
+7. pip freeze > requirements.txt
+This command saves all installed packages into a file.
+After running ls, I saw a new file called requirements.txt.
+Inside the file, I saw all packages with versions.
+
+8. pip uninstall Django
+This command removes Django from the environment.
+The terminal asked for confirmation, and after typing "y", Django was removed.
+
+9. pip show Django
+This command shows details about Django (version, location, dependencies).
+After uninstalling Django, it showed a warning that the package was not found.
