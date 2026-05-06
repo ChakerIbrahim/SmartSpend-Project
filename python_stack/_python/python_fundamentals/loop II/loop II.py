@@ -76,8 +76,8 @@ def ultimate_analysis(n):
         return False
 
     return {
-        "sumTotal": sum_total(n),
-        "av": average(n),
+        "sum": sum_total(n),
+        "avr": average(n),
         "min": minimum(n),
         "max": maximum(n),
         "len": length(n)
