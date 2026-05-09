@@ -4,9 +4,9 @@ name = "Jalil"
 print("My name is",name)
 print("My name is " + name )
 
-name = 42
-print("Hello",name)
-# print("Hello" + name)
+age = 42
+print("Hello",age)
+
 
 fav_food1 = "Sushi"
 fav_food2 = "Pizza"
