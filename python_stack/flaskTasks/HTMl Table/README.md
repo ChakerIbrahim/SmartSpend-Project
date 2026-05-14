@@ -44,6 +44,7 @@ html_table/
 
 ```bash
 source myenv/Scripts/activate
+```
 
 ## Images
 
