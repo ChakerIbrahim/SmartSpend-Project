@@ -46,4 +46,4 @@ html_table/
 source myenv/Scripts/activate
 
 ##  images
-![table](table.png)
+![table](static/table.png)
