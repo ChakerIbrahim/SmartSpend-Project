@@ -46,11 +46,11 @@ champion_survey/
 
 1. Create virtual environment
 
-```bash
+
 python -m venv .venv
 
-## Images
-(DojoSurvey.png) 
+##  Images
+![dojosurvey](DojoSurvey.png) 
 
-##result
-(result.png)
+##  result
+![result](result.png)
