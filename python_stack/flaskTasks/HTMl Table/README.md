@@ -45,5 +45,6 @@ html_table/
 ```bash
 source myenv/Scripts/activate
 
-##  images
+## Images
+
 ![table](static/table.png)
