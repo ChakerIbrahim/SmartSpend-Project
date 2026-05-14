@@ -92,4 +92,23 @@ class LinkedList:
 # current = my_list.head
 # while current:
 #     print(current.value, end=" -> ")
-#     current = current.next            
+#     current = current.next     
+
+    def addindex(self,val,index):
+        if index == 0:
+            New_node.next =self.head
+            self.head = New_node
+        
+        New_node = Node(val)
+        current = self.head
+        for i in range(index-1):
+            current = current.next 
+        New_node.next = current.next
+        current.next = New_node
+        
+
+my_list = LinkedList()
+my_list.addindex()
+        
+    
+      
