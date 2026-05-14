@@ -1,0 +1,21 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    margin: 20px;
+}
+
+.board {
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+}
+
+.box {
+    width: 60px;
+    height: 60px;
+}
