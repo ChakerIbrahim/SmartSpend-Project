@@ -106,5 +106,5 @@ Charging Michael for 5 fruits.
 
 again because the browser resubmits the form data.
 
-![result1](result1.png)
-![result2](result2.png)
+![result1](static/img/result1.png)
+![result2](static/img/result2.png)
