@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+</head>
+<body>
+    <h1>Counter App</h1>
+
+    <h2>Page Visits: {{ session["visits"] }}</h2>
+    <h2>Counter: {{ session["counter"] }}</h2>
+
+    <a href="/add_two">
+        <button>+2</button>
+    </a>
+
+    <a href="/reset">
+        <button>Reset Counter</button>
+    </a>
+
+    <a href="/destroy_session">
+        <button>Destroy Session</button>
+    </a>
+
+    <form action="/increment" method="POST">
+        <input type="number" name="number" placeholder="Enter increment number">
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

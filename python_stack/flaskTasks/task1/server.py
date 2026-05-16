@@ -7,7 +7,7 @@ def home():
 
 @app.route('/home/<name>')
 def welcome(name):
-    return "welcome home MR."+name 
+    return "welcome home MR."+ name 
 
 @app.route('/sum/<int:num1>/<int:num2>')
 def sum(num1,num2):
