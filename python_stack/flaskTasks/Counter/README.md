@@ -16,3 +16,5 @@ It also includes buttons to increase, reset, and clear the counter.
 
 ```bash
 python server.py
+
+![result](result.png)
