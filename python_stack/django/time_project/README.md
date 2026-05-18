@@ -31,7 +31,7 @@ URL → View → Context → Template → Response
 ## Run Project
 ```cmd
 py manage.py runserver
-
+``` 
 # Project Preview
 
 ![Project Screenshot](time_display/static/result.png)
