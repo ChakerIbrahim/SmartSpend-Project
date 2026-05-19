@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'styel.css'}" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="form" action="/result" method="post">
+        {% csrf_token %}
+
+        <div class="form-row">
+          <label for="name" class="label">Your Name:</label>
+          <input type="text" id="name" name="name" class="input" />
+        </div>
+
+        <div class="form-row">
+          <label for="location" class="label">Dojo Location:</label>
+          <select name="location" id="location" class="select">
+            <option value="San Jose">San Jose</option>
+            <option value="San Francisco">San Francisco</option>
+            <option value="Los Angeles">Los Angeles</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="fav-lang" class="label">Favorite Language</label>
+          <select name="fav-lang" id="fav-lang" class="select">
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="PHP">PHP</option>
+          </select>
+        </div>
+
+        <div class="block">
+          <p class="block-title">Have any Experiences?</p>
+          <div class="inline-group">
+            <input type="radio" id="experienced" name="answer" value="Yes" />
+            <label for="experienced">Yes</label>
+          </div>
+          <div class="inline-group">
+            <input type="radio" id="not_experienced" name="answer" value="No" />
+            <label for="not_experienced">No</label>
+          </div>
+        </div>
+
+        <div class="block">
+          <p class="block-title">What do you speak</p>
+          <div class="inline-group">
+            <input type="checkbox" id="arabic" name="Lang" value="Arabic" />
+            <label for="arabic">Arabic</label>
+          </div>
+          <div class="inline-group">
+            <input type="checkbox" id="english" name="Lang" value="English" />
+            <label for="english">English</label>
+          </div>
+        </div>
+
+        <div class="form-col">
+          <label for="comments" class="label-col">Comment (optional)</label>
+          <textarea
+            name="comments"
+            id="comments"
+            cols="30"
+            rows="5"
+            class="textarea"
+          ></textarea>
+        </div>
+
+        <div class="actions">
+          <input type="submit" value="Submit" class="btn" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
