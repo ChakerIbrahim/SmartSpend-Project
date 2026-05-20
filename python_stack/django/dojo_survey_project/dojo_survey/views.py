@@ -12,5 +12,11 @@ def results(request):
     lang = request.POST.getlist("Lang")
     
     comment = request.POST["comments"]
-    data = {"name" : name, "location" : location, "fav_language" : fav_language, "exp" : exp, "lang" : lang, "comment" : comment}
+    data = {"name" : name,
+            "location" : location,
+            "fav_language" : fav_language,
+            "exp" : exp,
+            "lang" : lang,
+            "comment" : comment
+            }
     return render(request, 'result.html',data)

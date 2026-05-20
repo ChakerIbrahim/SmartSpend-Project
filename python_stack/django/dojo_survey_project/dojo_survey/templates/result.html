@@ -4,43 +4,41 @@
 
     <meta charset="UTF-8" />
     <title>Result</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'result_style.css'}" />  </head>
     </head>
     <body>
-    <form action="/" class="form-back">
-        <div class="result-container">
-            <h1 class="result-title">Submitted Info</h1>
+    <form action="/">
+        <div>
+            <h1>Submitted Info</h1>
 
-        <div class="result-content">
-        <div class="row">
-          <p class="label">Name:</p>
-          <p class="value">{{name}}</p>
+        <div>
+        <div>
+          <p>Name:</p>
+          <p>{{name}}</p>
         </div>
 
-        <div class="row">
-          <p class="label">Dojo Location:</p>
-          <p class="value">{{location}}</p>
+        <div>
+          <p>Dojo Location:</p>
+          <p>{{location}}</p>
         </div>
 
-        <div class="row">
-          <p class="label">Favorite Language:</p>
-          <p class="value">{{fav_language}}</p>
+        <div>
+          <p>Favorite Language:</p>
+          <p>{{fav_language}}</p>
         </div>
 
-        <div class="row">
-          <p class="label">Comment:</p>
-          <p class="value">{{comment}}</p>
+        <div>
+          <p >Comment:</p>
+          <p >{{comment}}</p>
         </div>
 
-        <div class="row">
-          <p class="label">Experienced:</p>
-          <p class="value">{{exp}}</p>
+        <div>
+          <p>Experienced:</p>
+          <p>{{exp}}</p>
         </div>
 
-        <div class="row">
-          <p class="label">Languages:</p>
-          <p class="value">
+        <div>
+          <p>Languages:</p>
+          <p>
             {% for item in lang %}
             {{item}}
             {% endfor %}
@@ -48,8 +46,8 @@
         </div>
       </div>
 
-        <div class="back-button-container">
-          <button class="back-button">Go Back</button>
+        <div>
+          <button>Go Back</button>
         </div>
       </form>
     </div>
