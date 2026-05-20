@@ -11,7 +11,7 @@ The app can:
 
 ## Preview
 
-![Counter App Screenshot](static/counter.png)
+![Counter App Screenshot](counter.png)
 
 ## Features
 - Django project setup
