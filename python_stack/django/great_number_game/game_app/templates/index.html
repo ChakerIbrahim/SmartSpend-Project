@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Great Number Game</title>
+    {% load static%}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+  </head>
+  <body>
+    <h1>Welcome to the Great Number Game!</h1>
+
+    <p>I am thinking of a number between 1 and 100</p>
+    <p>Take a guess!</p>
+
+    {% if request.session.message %}
+    <div class="box {{ request.session.color }}">
+      {{ request.session.message }} {% if request.session.game_over %}
+      <p>Attempts: {{ request.session.attempts }}</p>
+      <a href="/reset">
+        <button>Play Again</button>
+      </a>
+      {% endif %}
+    </div>
+    {% endif %} {% if not request.session.game_over %}
+    <form action="/guess" method="POST">
+      {% csrf_token %}
+      <input type="number" name="guess" min="1" max="100" required />
+      <button type="submit">Submit</button>
+    </form>
+
+    <p>Attempts: {{ request.session.attempts }} / 10</p>
+    {% endif %}
+  </body>
+</html>
