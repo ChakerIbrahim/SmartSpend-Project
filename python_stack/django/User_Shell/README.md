@@ -154,13 +154,14 @@ User.objects.all().order_by("-first_name")
 
 ---
 
-## SQLite Database Before Update/Delete
+
+## SQLite Database After Update/Delete
 
 ![SQLite Database](sql-lite.png)
 
 ---
 
-## SQLite Database After Update/Delete
+## SQLite Database Before Update/Delete
 
 ![SQLite Database Updated](sql-lite2.png)
 
