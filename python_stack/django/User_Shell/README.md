@@ -150,25 +150,25 @@ User.objects.all().order_by("-first_name")
 
 ## Creating Users
 
-![Create Users](static/create.png)
+![Create Users](create.png)
 
 ---
 
 ## SQLite Database Before Update/Delete
 
-![SQLite Database](static/sql-lite.png)
+![SQLite Database](sql-lite.png)
 
 ---
 
 ## SQLite Database After Update/Delete
 
-![SQLite Database Updated](static/sql-lite2.png)
+![SQLite Database Updated](sql-lite2.png)
 
 ---
 
 ## Shell Queries Output
 
-![Shell Output](static/show.png)
+![Shell Output](show.png)
 
 ---
 
