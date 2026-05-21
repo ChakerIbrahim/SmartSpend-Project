@@ -28,8 +28,7 @@ A simple Django game where the user tries to guess a random number between 1 and
 ---
 
 ## Project Preview
-
-![Game Result](static/result.png)
+![Game Result](game_app/static/result.png)
 
 ---
 
