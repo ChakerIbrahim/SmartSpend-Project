@@ -10,8 +10,8 @@ def results(request):
     fav_language = request.POST["fav-lang"]
     exp = request.POST["answer"]
     lang = request.POST.getlist("Lang")
-    
     comment = request.POST["comments"]
+    
     data = {"name" : name,
             "location" : location,
             "fav_language" : fav_language,
