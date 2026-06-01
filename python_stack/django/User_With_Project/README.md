@@ -111,7 +111,7 @@ result.png
 Then use:
 
 ```md
-![Result](result.png)
+![Result](UsersApps/static/result.png)
 ```
 
 ---
