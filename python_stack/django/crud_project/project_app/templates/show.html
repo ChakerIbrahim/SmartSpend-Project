@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Task</title>
+</head>
+<body>
+
+<h1>{{ task.title }}</h1>
+
+<p>{{ task.description }}</p>
+
+{% if task.is_completed %}
+    <p>Status: Completed</p>
+{% else %}
+    <p>Status: Not Completed</p>
+{% endif %}
+
+<a href="/">Back</a>
+<a href="/tasks/{{ task.id }}/edit/">Edit</a>
+<a href="/tasks/{{ task.id }}/delete/">Delete</a>
+
+</body>
+</html>
