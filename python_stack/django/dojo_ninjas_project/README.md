@@ -26,7 +26,7 @@ A Django application that demonstrates One-to-Many relationships using Dojos and
 
 ### Add Dojo
 
-![Add Dojo](dojo_ninjas_app/static/Add_dojo.png)
+![Add Dojo](dojo_ninjas_app/static/Add_dogo.png)
 
 ### Add Ninja
 
