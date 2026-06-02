@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Author Details</title>
+</head>
+<body>
+
+    <!-- Display author information -->
+    <h1>{{ author.first_name }} {{ author.last_name }}</h1>
+
+    <p><strong>ID:</strong> {{ author.id }}</p>
+    <p><strong>Notes:</strong> {{ author.notes }}</p>
+
+    <hr>
+
+    <!-- Display all books connected to this author -->
+    <h2>Books</h2>
+
+    <ul>
+        {% for book in author.books.all %}
+            <li>{{ book.title }}</li>
+        {% empty %}
+            <li>No books added yet.</li>
+        {% endfor %}
+    </ul>
+
+    <hr>
+
+    <!-- Form to add a book to this author -->
+    <h2>Add Book to Author</h2>
+
+    <form action="/authors/{{ author.id }}/add_book" method="POST">
+        {% csrf_token %}
+
+        <select name="book_id">
+            {% for book in available_books %}
+                <option value="{{ book.id }}">
+                    {{ book.title }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <br>
+
+    <a href="/authors">Back to Authors</a>
+
+</body>
+</html>
