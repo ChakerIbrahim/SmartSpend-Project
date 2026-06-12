@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-bar">
+        <img src="smartspendx_icon_only.png" alt="Smart Spend Logo" class="logo-img">
+        <div>
+            <p class="logo-title">Smart Spend</p>
+            <p class="logo-sub">Settings</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <p class="section-label">Profile</p>
+        <form action="" method="">
+            <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+            </div>
+            <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email">
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••">
+            </div>
+        </form>
+        <button class="btn-green">Save Changes</button>
+    </div>
+
+    <div class="section">
+        <p class="section-label">Notifications</p>
+        <form action="" method="">
+            <div class="toggle-row">
+                <label for="emailnotifications">Email Notifications</label>
+                <label class="toggle">
+                    <input type="checkbox" id="emailnotifications" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle-row">
+                <label for="pushnotifications">Push Notifications</label>
+                <label class="toggle">
+                    <input type="checkbox" id="pushnotifications">
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle-row">
+                <label for="monthlyreport">Monthly Spending Report</label>
+                <label class="toggle">
+                    <input type="checkbox" id="monthlyreport" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </form>
+    </div>
+
+    <div class="section">
+        <p class="section-label">Preferences</p>
+        <div class="prefs-grid">
+            <div class="pref-field">
+                <label for="Currency">Currency</label>
+                <select name="Currency" id="Currency">
+                    <option value="ILS">ILS ₪</option>
+                    <option value="USD">USD $</option>
+                    <option value="EURO">Euro €</option>
+                </select>
+            </div>
+            <div class="pref-field">
+                <label for="Language">Language</label>
+                <select name="Language" id="Language">
+                    <option value="english">English</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="spanish">Spanish</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-danger">
+        <p class="danger-title">Danger zone</p>
+        <p class="danger-sub">This will permanently delete your account and all expense data.</p>
+        <button class="btn-red">Delete Account</button>
+    </div>
+
+</body>
+</html>
