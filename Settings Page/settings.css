@@ -1,0 +1,230 @@
+* {
+    font-family: "Noto Serif", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #182130;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+}
+
+/* ── Top bar ── */
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 4px 12px;
+    background: transparent;
+}
+
+.logo-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo-title {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.logo-sub {
+    color: #aaa;
+    font-size: 12px;
+}
+
+/* ── Sections ── */
+.section {
+    background-color: #1e2d42;
+    border-radius: 10px;
+    padding: 20px 24px;
+}
+
+.section-label {
+    color: #aaa;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+}
+
+/* ── Form fields ── */
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+    background: transparent;
+}
+
+.field label {
+    color: #aaa;
+    font-size: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    background-color: #243447;
+    border: 1px solid #2e4260;
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+    color: #555;
+}
+
+/* ── Toggle rows ── */
+.toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 0.5px solid #2e4260;
+    background: transparent;
+}
+
+.toggle-row:last-child {
+    border-bottom: none;
+}
+
+.toggle-row label:first-child {
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.toggle {
+    position: relative;
+    width: 44px;
+    height: 24px;
+    flex-shrink: 0;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: #555;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.slider::before {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 3px;
+    top: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.toggle input:checked + .slider { background: #4CAF50; }
+.toggle input:checked + .slider::before { transform: translateX(20px); }
+
+/* ── Preferences grid ── */
+.prefs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    background: transparent;
+}
+
+.pref-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+}
+
+.pref-field label {
+    color: #aaa;
+    font-size: 12px;
+}
+
+select {
+    background-color: #243447;
+    border: 1px solid #2e4260;
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* ── Danger zone ── */
+.section-danger {
+    background-color: #2a1a1a;
+    border: 1px solid #5a2020;
+    border-radius: 10px;
+    padding: 20px 24px;
+}
+
+.danger-title {
+    color: #f09595;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.danger-sub {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+
+/* ── Buttons ── */
+.btn-green {
+    background-color: #1D9E75;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 20px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.btn-red {
+    background-color: #A32D2D;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 9px 20px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.btn-green:hover { background-color: #178a65; }
+.btn-red:hover { background-color: #8b2424; }
