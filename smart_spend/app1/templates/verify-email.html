@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Email - Household Expense Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6C63FF',
+                        'primary-dark': '#5a52d4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-900 min-h-screen flex items-center justify-center p-4">
+
+    <!-- Main Container -->
+    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+
+        <div class="p-8">
+            <!-- App Logo & Header -->
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-4">
+                    <i data-lucide="mail-check" class="w-8 h-8 text-primary"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-gray-900">Verify Your Email</h1>
+                <p class="text-gray-500 mt-2">We've sent a 6-digit verification code to <br><span
+                        class="font-semibold text-gray-900">john.doe@example.com</span></p>
+            </div>
+
+            <!-- Verification Code Input -->
+            <form action="success.html" method="GET" class="space-y-6">
+                <div class="flex justify-between gap-2">
+                    <input type="text" maxlength="1"
+                        class="w-12 h-14 text-center text-2xl font-bold border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none">
+                    <input type="text" maxlength="1"
+                        class="w-12 h-14 text-center text-2xl font-bold border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none">
+                    <input type="text" maxlength="1"
+                        class="w-12 h-14 text-center text-2xl font-bold border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none">
+                    <input type="text" maxlength="1"
+                        class="w-12 h-14 text-center text-2xl font-bold border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none">
+                    <input type="text" maxlength="1"
+                        class="w-12 h-14 text-center text-2xl font-bold border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none">
+                    <input type="text" maxlength="1"
+                        class="w-12 h-14 text-center text-2xl font-bold border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none">
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+                    <span>Verify Account</span>
+                    <i data-lucide="check-circle" class="w-4 h-4"></i>
+                </button>
+            </form>
+
+            <!-- Resend Link -->
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-600">
+                    Didn't receive the code?
+                    <button class="font-bold text-primary hover:text-primary-dark transition-colors">Resend
+                        Code</button>
+                </p>
+                <a href="login.html"
+                    class="inline-flex items-center gap-2 text-sm font-bold text-gray-600 hover:text-primary transition-colors mt-6">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                    Back to Login
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Auto-focus next input for verification code
+        const inputs = document.querySelectorAll('input[maxlength="1"]');
+        inputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value.length === 1 && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && e.target.value.length === 0 && index > 0) {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
