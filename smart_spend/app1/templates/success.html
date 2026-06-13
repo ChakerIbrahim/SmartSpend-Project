@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Created - Household Expense Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D9E75',
+                        'primary-dark': '#178a65',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes celebrate {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .animate-celebrate {
+            animation: celebrate 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+    </style>
+</head>
+
+<body class="bg-[#182130] font-sans text-[#b8d5d9] min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-md w-full bg-[#0d1018] rounded-3xl shadow-2xl overflow-hidden border border-[#1e2d40] p-2">
+
+        <div class="bg-primary/5 rounded-[2rem] p-8 text-center">
+            <div class="flex justify-center mb-6">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
+                    <div class="relative bg-[#141b26] border border-[#1e2d40] p-6 rounded-full shadow-xl animate-celebrate">
+                        <i data-lucide="party-popper" class="w-12 h-12 text-primary"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-3xl font-bold text-white mb-3">All Set!</h1>
+            <p class="text-[#b8d5d9] mb-8 leading-relaxed">
+                Your account has been created successfully. You're now ready to start managing your household expenses
+                like a pro.
+            </p>
+
+            <a href="login.html"
+                class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-2xl shadow-lg shadow-primary/30 transition-all active:scale-[0.98] flex items-center justify-center gap-3 mb-4">
+                <span>Go to Dashboard</span>
+                <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+            </a>
+
+            <p class="text-sm text-[#b8d5d9]">
+                Taking you to the login page in <span id="countdown" class="font-bold text-primary">5</span> seconds...
+            </p>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // Countdown and redirect
+        let seconds = 5;
+        const countdownEl = document.getElementById('countdown');
+
+        const timer = setInterval(() => {
+            seconds--;
+            countdownEl.innerText = seconds;
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = 'login.html';
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>
