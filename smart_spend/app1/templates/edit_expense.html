@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Expense</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            font-family: "Noto Serif", serif;
+        }
+    </style>
+</head>
+
+<body class="bg-[#182130] text-[#b8d5d9] min-h-screen flex items-center justify-center p-4">
+
+    <main class="max-w-2xl w-full">
+        <section class="w-full bg-[#0d1018] p-6 md:p-8 rounded-2xl border border-[#1e2d40] shadow-xl">
+            
+            <div class="border-b border-[#1e2d40] pb-4 mb-6">
+                <span class="text-sm font-medium text-[#536eda]">
+                    Edit Expense
+                </span>
+                <h1 class="text-3xl font-bold mt-2 text-white">Update Expense</h1>
+            </div>
+
+            <form method="POST" action="{% url 'update_expense' expense.id %}" class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6 flex flex-col gap-5">
+                {% csrf_token %}
+
+                <div>
+                    <label class="text-sm font-medium text-slate-400">Expense Title</label>
+                    <input type="text" name="title" value="{{ expense.title }}" required 
+                        class="w-full mt-2 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+                </div>
+
+                <div>
+                    <label class="text-sm font-medium text-slate-400">Amount ($)</label>
+                    <input type="number" step="0.01" name="amount" value="{{ expense.amount }}" required 
+                        class="w-full mt-2 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+                </div>
+
+                <div>
+                    <label class="text-sm font-medium text-slate-400">Category</label>
+                    <select name="category" required 
+                        class="w-full mt-2 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+                        <option value="{{ expense.category }}">{{ expense.category }}</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Bills">Bills</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-sm font-medium text-slate-400">Date</label>
+                    <input type="date" name="date" value="{{ expense.date|date:'Y-m-d' }}" required 
+                        class="w-full mt-2 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                    <button type="submit" 
+                        class="w-full py-3 rounded-2xl text-white font-bold bg-gradient-to-r from-[#4e90bf] to-[#76549b] hover:opacity-90 transition-opacity">
+                        Save Changes
+                    </button>
+
+                    <a href="{% url 'all_expenses' %}" 
+                       class="w-full text-center py-3 rounded-2xl text-white bg-[#443e45] border-2 border-[#b3b2b6] cursor-pointer hover:bg-[#575058] transition-colors inline-block whitespace-nowrap">
+                        Cancel
+                    </a>
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
