@@ -5,19 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Household Expense Manager</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#6C63FF',
-                        'primary-dark': '#5a52d4',
+                        primary: '#1D9E75',
+                        'primary-dark': '#178a65',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -28,128 +25,113 @@
     </script>
 </head>
 
-<body class="bg-gray-50 font-sans text-gray-900 min-h-screen flex items-center justify-center p-4">
+<body class="bg-[#182130] font-sans text-[#b8d5d9] min-h-screen flex items-center justify-center p-4">
 
-    <!-- Main Container -->
-    <div class="max-w-lg w-full bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 my-8">
+    <div class="max-w-lg w-full bg-[#0d1018] rounded-2xl shadow-xl overflow-hidden border border-[#1e2d40] my-8">
 
         <div class="p-8">
-            <!-- App Logo & Header -->
             <div class="text-center mb-8">
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-4">
                     <i data-lucide="user-plus" class="w-8 h-8 text-primary"></i>
                 </div>
-                <h1 class="text-2xl font-bold text-gray-900">Create Account</h1>
-                <p class="text-gray-500 mt-2">Join thousands of households managing smarter</p>
+                <h1 class="text-2xl font-bold text-white">Create Account</h1>
+                <p class="text-[#b8d5d9] mt-2">Join thousands of households managing smarter</p>
             </div>
 
-            <!-- Registration Form -->
             <form action="#" method="POST" class="space-y-4">
 
-                <!-- Grid for Name and Username -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Full Name -->
                     <div>
-                        <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                        <label for="fullname" class="block text-sm font-medium text-[#b8d5d9] mb-1">Full Name</label>
                         <input type="text" id="fullname" name="fullname" required
-                            class="block w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-400"
+                            class="block w-full px-4 py-2.5 bg-[#141b26] border border-[#1e2d40] text-white rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-500"
                             placeholder="John Doe">
                     </div>
-                    <!-- Username -->
                     <div>
-                        <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                        <label for="username" class="block text-sm font-medium text-[#b8d5d9] mb-1">Username</label>
                         <input type="text" id="username" name="username" required
-                            class="block w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-400"
+                            class="block w-full px-4 py-2.5 bg-[#141b26] border border-[#1e2d40] text-white rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-500"
                             placeholder="johndoe123">
                     </div>
                 </div>
 
-                <!-- Email Input -->
                 <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <label for="email" class="block text-sm font-medium text-[#b8d5d9] mb-1">Email Address</label>
                     <input type="email" id="email" name="email" required
-                        class="block w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-400"
+                        class="block w-full px-4 py-2.5 bg-[#141b26] border border-[#1e2d40] text-white rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-500"
                         placeholder="name@example.com">
                 </div>
 
-                <!-- Password Input -->
                 <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <label for="password" class="block text-sm font-medium text-[#b8d5d9] mb-1">Password</label>
                     <div class="relative">
                         <input type="password" id="password" name="password" required
                             oninput="checkStrength(this.value)"
-                            class="block w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-400"
+                            class="block w-full px-4 py-2.5 bg-[#141b26] border border-[#1e2d40] text-white rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-500"
                             placeholder="••••••••">
                     </div>
-                    <!-- Password Strength Indicator -->
                     <div class="mt-2 flex items-center gap-1">
-                        <div id="strength-1" class="h-1.5 w-full rounded-full bg-gray-200 transition-colors"></div>
-                        <div id="strength-2" class="h-1.5 w-full rounded-full bg-gray-200 transition-colors"></div>
-                        <div id="strength-3" class="h-1.5 w-full rounded-full bg-gray-200 transition-colors"></div>
-                        <div id="strength-4" class="h-1.5 w-full rounded-full bg-gray-200 transition-colors"></div>
+                        <div id="strength-1" class="h-1.5 w-full rounded-full bg-gray-700 transition-colors"></div>
+                        <div id="strength-2" class="h-1.5 w-full rounded-full bg-gray-700 transition-colors"></div>
+                        <div id="strength-3" class="h-1.5 w-full rounded-full bg-gray-700 transition-colors"></div>
+                        <div id="strength-4" class="h-1.5 w-full rounded-full bg-gray-700 transition-colors"></div>
                     </div>
-                    <p id="strength-text" class="text-[10px] text-gray-500 mt-1 uppercase font-bold tracking-wider">
+                    <p id="strength-text" class="text-[10px] text-gray-400 mt-1 uppercase font-bold tracking-wider">
                         Strength: Weak</p>
                 </div>
 
-                <!-- Confirm Password -->
                 <div>
-                    <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirm
+                    <label for="confirm-password" class="block text-sm font-medium text-[#b8d5d9] mb-1">Confirm
                         Password</label>
                     <input type="password" id="confirm-password" name="confirm-password" required
-                        class="block w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-400"
+                        class="block w-full px-4 py-2.5 bg-[#141b26] border border-[#1e2d40] text-white rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none placeholder-gray-500"
                         placeholder="••••••••">
                 </div>
 
-                <!-- Terms and Conditions -->
                 <div class="flex items-start py-2">
                     <input type="checkbox" id="terms" name="terms" required
-                        class="mt-1 h-4 w-4 text-primary border-gray-300 rounded focus:ring-primary">
-                    <label for="terms" class="ml-2 block text-sm text-gray-600">
+                        class="mt-1 h-4 w-4 bg-[#141b26] border-[#1e2d40] text-primary rounded focus:ring-primary">
+                    <label for="terms" class="ml-2 block text-sm text-[#b8d5d9]">
                         I agree to the <a href="#" class="text-primary font-semibold hover:underline">Terms &
                             Conditions</a> and <a href="#" class="text-primary font-semibold hover:underline">Privacy
                             Policy</a>.
                     </label>
                 </div>
 
-                <!-- Create Account Button -->
                 <button type="submit"
                     class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 rounded-xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
                     <span>Create Account</span>
                     <i data-lucide="check-circle" class="w-4 h-4"></i>
                 </button>
 
-                <!-- Social Login Divider -->
                 <div class="relative my-6">
                     <div class="absolute inset-0 flex items-center">
-                        <div class="w-full border-t border-gray-200"></div>
+                        <div class="w-full border-t border-[#1e2d40]"></div>
                     </div>
                     <div class="relative flex justify-center text-sm">
-                        <span class="px-2 bg-white text-gray-500 uppercase tracking-wider text-xs font-medium">Or join
+                        <span class="px-2 bg-[#0d1018] text-[#b8d5d9] uppercase tracking-wider text-xs font-medium">Or join
                             with</span>
                     </div>
                 </div>
 
-                <!-- Social Login Buttons -->
                 <div class="grid grid-cols-3 gap-3">
                     <button type="button"
-                        class="flex items-center justify-center py-2.5 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
+                        class="flex items-center justify-center py-2.5 border border-[#1e2d40] bg-[#141b26] rounded-xl hover:bg-[#182130] transition-colors">
                         <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" alt="Google">
                     </button>
                     <button type="button"
-                        class="flex items-center justify-center py-2.5 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
-                        <img src="https://www.svgrepo.com/show/475633/apple-color.svg" class="w-5 h-5" alt="Apple">
+                        class="flex items-center justify-center py-2.5 border border-[#1e2d40] bg-[#141b26] rounded-xl hover:bg-[#182130] transition-colors">
+                        <img src="https://www.svgrepo.com/show/475633/apple-color.svg" class="w-5 h-5 filter brightness-125" alt="Apple">
                     </button>
                     <button type="button"
-                        class="flex items-center justify-center py-2.5 border border-gray-200 rounded-xl hover:bg-gray-50 transition-colors">
+                        class="flex items-center justify-center py-2.5 border border-[#1e2d40] bg-[#141b26] rounded-xl hover:bg-[#182130] transition-colors">
                         <img src="https://www.svgrepo.com/show/475647/facebook-color.svg" class="w-5 h-5"
                             alt="Facebook">
                     </button>
                 </div>
             </form>
 
-            <!-- Footer Link -->
-            <p class="mt-8 text-center text-sm text-gray-600">
+            <p class="mt-8 text-center text-sm text-[#b8d5d9]">
                 Already have an account?
                 <a href="login.html" class="font-bold text-primary hover:text-primary-dark transition-colors">Sign
                     In</a>
@@ -157,7 +139,6 @@
         </div>
     </div>
 
-    <!-- Script for Lucide Icons and Password Strength -->
     <script>
         // Initialize Lucide Icons
         lucide.createIcons();
@@ -179,9 +160,9 @@
             const text = document.getElementById('strength-text');
 
             // Reset colors
-            bars.forEach(bar => bar.className = 'h-1.5 w-full rounded-full bg-gray-200 transition-colors');
+            bars.forEach(bar => bar.className = 'h-1.5 w-full rounded-full bg-gray-700 transition-colors');
 
-            const colors = ['bg-red-400', 'bg-orange-400', 'bg-yellow-400', 'bg-green-500'];
+            const colors = ['bg-red-500', 'bg-orange-500', 'bg-yellow-500', 'bg-green-500'];
             const labels = ['Weak', 'Fair', 'Good', 'Strong'];
 
             if (strength > 0) {
@@ -189,10 +170,10 @@
                     bars[i].className = `h-1.5 w-full rounded-full ${colors[strength - 1]} transition-colors`;
                 }
                 text.innerText = `Strength: ${labels[strength - 1]}`;
-                text.className = `text-[10px] mt-1 uppercase font-bold tracking-wider ${strength === 4 ? 'text-green-600' : 'text-gray-500'}`;
+                text.className = `text-[10px] mt-1 uppercase font-bold tracking-wider ${strength === 4 ? 'text-green-500' : 'text-gray-400'}`;
             } else {
                 text.innerText = 'Strength: Weak';
-                text.className = 'text-[10px] text-gray-500 mt-1 uppercase font-bold tracking-wider';
+                text.className = 'text-[10px] text-gray-400 mt-1 uppercase font-bold tracking-wider';
             }
         }
     </script>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Smart Spend X - Dashboard</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+        <script src="script.js" defer></script>    
+
+        <style>
+            /* Custom baseline overrides and animations */
+            * {
+                font-family: "Noto Serif", serif;
+                font-size: 26px;
+            }
+            @keyframes gradientMove {
+                0%   { background-position: 0% center; }
+                100% { background-position: 200% center; }
+            }
+            .animate-gradient {
+                background-size: 200% auto;
+                animation: gradientMove 3s linear infinite;
+            }
+            /* Hide scrollbar tracks for clean horizontal lists on mobile */
+            .no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        </style>
+    </head>
+    <body class="bg-[#182130] text-[#b8d5d9] flex flex-col gap-[1.4rem] min-h-screen">
+        
+        <nav class="h-[7rem] flex justify-between items-center px-4 md:px-16 bg-gradient-to-r from-[#0d1018] via-[#0d1018] to-[#203361] bg-[length:200%_auto]">
+            <div class="flex flex-col items-center bg-[#0d1018]">
+                <img src="images/smartspendx_icon_only.png" alt="Page Logo" class="w-[100px] h-full object-contain">
+                <h1 class="text-white text-[26px] font-bold">Smart Spend <span class="text-[30px] bg-gradient-to-r from-[#536eda] via-[#3ea8cd] to-[#76549b] bg-clip-text text-transparent animate-gradient">X</span></h1>
+                <p class="text-[20px] bg-gradient-to-r from-[#3ea8cd] via-[#536eda] to-[#76549b] bg-clip-text text-transparent animate-gradient">Smarter Money Better Future</p>
+            </div>
+            <button class="rounded-[20px] p-[0.6rem] text-white bg-[#1f2f4e] border-2 border-[#b3b2b6] text-[26px] cursor-pointer hover:bg-[#443e45] transition-colors">Sign Out</button>
+        </nav>
+
+        <main class="flex flex-col md:flex-row min-h-[80vh] gap-[1.4rem] px-4 md:px-0 bg-[#182130]">
+            
+            <aside class="hidden md:block absolute md:relative top-[7rem] md:top-0 left-0 w-full md:w-fit bg-gradient-to-b from-[#0d1018] via-[#0d1018] to-[#1a3a52] z-40 border-b md:border-b-0 border-[#1e2d40]">
+                <ul class="bg-transparent flex flex-row md:flex-col min-h-fit list-none gap-4 p-4 w-full overflow-x-auto md:overflow-x-visible no-scrollbar">
+                    <li class="cursor-pointer rounded-[8px] px-[0.6rem] py-[0.3rem] transition-colors duration-200 hover:bg-[#1e2d40] shrink-0"><p class="text-[22px] md:text-[24px] whitespace-nowrap">Profile</p></li>
+                    <li class="cursor-pointer rounded-[8px] px-[0.6rem] py-[0.3rem] transition-colors duration-200 hover:bg-[#1e2d40] shrink-0"><p class="text-[22px] md:text-[24px] whitespace-nowrap">Analytics</p></li>
+                    <li class="cursor-pointer rounded-[8px] px-[0.6rem] py-[0.3rem] transition-colors duration-200 hover:bg-[#1e2d40] shrink-0"><p class="text-[22px] md:text-[24px] whitespace-nowrap">Bill Reminder</p></li>
+                    <li class="cursor-pointer rounded-[8px] px-[0.6rem] py-[0.3rem] transition-colors duration-200 hover:bg-[#1e2d40] shrink-0"><p class="text-[22px] md:text-[24px] whitespace-nowrap">Add Expense</p></li>
+                    <li class="cursor-pointer rounded-[8px] px-[0.6rem] py-[0.3rem] transition-colors duration-200 hover:bg-[#1e2d40] shrink-0"><p class="text-[22px] md:text-[24px] whitespace-nowrap">AI Predictions</p></li>
+                    <li class="cursor-pointer rounded-[8px] px-[0.6rem] py-[0.3rem] transition-colors duration-200 hover:bg-[#1e2d40] shrink-0"><p class="text-[22px] md:text-[24px] whitespace-nowrap">Settings</p></li>
+                    <li class="cursor-pointer rounded-[8px] px-[0.6rem] py-[0.3rem] transition-colors duration-200 hover:bg-[#1e2d40] shrink-0"><p class="text-[22px] md:text-[24px] whitespace-nowrap">About Us</p></li>
+                </ul>
+            </aside>
+
+            <div class="main w-full md:w-[85%] p-4 flex flex-col gap-[1.4rem] bg-[#0d1018] flex-1">
+                <h2 class="text-[28px] text-[#b8d5d9] pb-2 border-b border-[#1e2d40]">DashBoard Overview</h2>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <section class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.2rem] flex flex-col gap-2">
+                        <h2 class="text-[16px] text-[#4e90bf] uppercase tracking-[1px]">Total Spend</h2>
+                        <p class="text-[26px] text-white font-bold">$3,131,021</p>
+                        <p class="text-[14px] text-[#536eda]">↑ 0.4% vs last month</p>
+                    </section>
+                    <section class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.2rem] flex flex-col gap-2">
+                        <h2 class="text-[16px] text-[#4e90bf] uppercase tracking-[1px]">Monthly Budget</h2>
+                        <p class="text-[26px] text-white font-bold">$1,511,121</p>
+                        <p class="text-[14px] text-[#536eda]">↑ 32% vs last quarter</p>
+                    </section>
+                    <section class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.2rem] flex flex-col gap-2">
+                        <h2 class="text-[16px] text-[#4e90bf] uppercase tracking-[1px]">Open bills</h2>
+                        <p class="text-[26px] text-white font-bold">71%</p>
+                        <p class="text-[14px] text-[#536eda]">Goal: $1.1M</p>
+                    </section>
+                    <section class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.2rem] flex flex-col gap-2">
+                        <h2 class="text-[16px] text-[#4e90bf] uppercase tracking-[1px]">AI Tip</h2>
+                        <p class="text-[26px] text-white font-bold">18,221</p>
+                        <p class="text-[14px] text-[#536eda]">↑ 11% vs last quarter</p>
+                    </section>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1.2fr] gap-4 flex-1">
+                    
+                    <section class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.4rem] flex flex-col gap-4 flex-1">
+                        <h2 class="text-[20px] text-[#b8d5d9]">Sales Overview</h2>
+                        <div class="flex flex-col sm:flex-row gap-8 items-start sm:items-center bg-transparent">
+                            <canvas id="donutChart" width="240" height="240" class="w-full max-w-[240px] max-h-[240px]"></canvas>
+                            <ul class="list-none flex flex-col gap-4 bg-transparent">
+                                <li><p class="text-[15px] text-[#b8d5d9] flex items-center"><span class="inline-block w-[10px] h-[10px] rounded-full mr-[6px] bg-[#4e90bf]"></span>Electronic &nbsp; $55,640</p></li>
+                                <li><p class="text-[15px] text-[#b8d5d9] flex items-center"><span class="inline-block w-[10px] h-[10px] rounded-full mr-[6px] bg-[#536eda]"></span>Furniture &nbsp; $11,420</p></li>
+                                <li><p class="text-[15px] text-[#b8d5d9] flex items-center"><span class="inline-block w-[10px] h-[10px] rounded-full mr-[6px] bg-[#76549b]"></span>Clothes &nbsp; $1,840</p></li>
+                                <li><p class="text-[15px] text-[#b8d5d9] flex items-center"><span class="inline-block w-[10px] h-[10px] rounded-full mr-[6px] bg-[#3ea8cd]"></span>Savings &nbsp; $2,120</p></li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="flex flex-col gap-4 bg-transparent">
+                        <section class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.4rem] flex flex-col gap-[0.6rem] flex-1">
+                            <h2 class="text-[18px] text-[#b8d5d9]">Recent Expenses</h2>
+                            <p class="text-[15px] text-[#536eda]">$136,755.77</p>
+                            <p class="text-[15px] text-[#536eda]">↑ +42% Weekly Profit</p>
+                        </section>
+                        <section class="bg-gradient-to-br from-[#0d1018] to-[#1a3a52] border border-[#4e90bf] rounded-[12px] p-[1.4rem] flex flex-col gap-[0.6rem] flex-1">
+                            <h2 class="text-[18px] text-[#b8d5d9]">Premium Plan</h2>
+                            <p class="text-[15px] text-[#536eda]">Improve your finances, view and analyze your profits and losses</p>
+                            <button class="mt-2 px-[1.2rem] py-[0.6rem] rounded-[20px] bg-gradient-to-r from-[#4e90bf] to-[#536eda] text-white text-[15px] cursor-pointer w-fit font-semibold hover:opacity-90 transition-opacity">Get Started</button>
+                        </section>
+                    </section>
+
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Planning - Smart Spend</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      bg: '#182130',
+                      card: '#0d1018',
+                      inner: '#141b26',
+                      border: '#1e2d40',
+                      safe: '#1D9E75',
+                      warning: '#EF9F27',
+                      danger: '#A32D2D',
+                      'danger-text': '#f09595',
+                      muted: '#b8d5d9',
+                      light: '#e0e0e0',
+                  },
+                  fontFamily: {
+                      serif: ['"Noto Serif"', 'serif'],
+                  },
+              }
+          }
+      }
+  </script>
+  <style>
+    /* Baseline overrides and branding text animation layers */
+    * {
+        font-family: "Noto Serif", serif;
+        box-sizing: border-box;
+    }
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    select option { 
+        background-color: #141b26; 
+        color: #fff; 
+    }
+    @keyframes gradientMove {
+        0%   { background-position: 0% center; }
+        100% { background-position: 200% center; }
+    }
+    .animate-gradient {
+        background-size: 200% auto;
+        animation: gradientMove 3s linear infinite;
+    }
+    /* Mobile menu toggle mechanic via checkbox selector */
+    #menu-toggle:checked ~ #mobile-menu {
+        max-height: 500px;
+        opacity: 1;
+        padding: 1rem 0;
+    }
+  </style>
+</head>
+
+<body class="bg-[#182130] text-[#b8d5d9] min-h-screen flex flex-col justify-between">
+
+  <nav class="bg-gradient-to-r from-[#0d1018] via-[#0d1018] to-[#203361] px-6 md:px-16 py-5 relative z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      
+      <div class="flex flex-col items-center bg-[#0d1018] p-2 rounded-lg min-w-[340px]">
+          <img src="smartspendx_icon_only.png" alt="Page Logo" class="w-[100px] h-auto object-contain">
+          <h1 class="text-white text-[26px] font-bold">Smart Spend <span class="text-[30px] bg-gradient-to-r from-[#536eda] via-[#3ea8cd] to-[#76549b] bg-clip-text text-transparent animate-gradient">X</span></h1>
+          <p class="text-[20px] bg-gradient-to-r from-[#3ea8cd] via-[#536eda] to-[#76549b] bg-clip-text text-transparent animate-gradient">Smarter Money Better Future</p>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-2 rounded-full bg-white/5 border border-white/10 p-2 mx-4">
+        <a href="profile.html" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">Profile</a>
+        <a href="analytics.html" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">Analytics</a>
+        <a href="bills.html" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">Bill Reminder</a>
+        <a href="expenses.html" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">Add Expense</a>
+        <a href="predictions.html" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">AI Predictions</a>
+        <a href="settings.html" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">Settings</a>
+        <a href="about.html" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">About Us</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="login.html" class="rounded-[20px] p-[0.6rem] px-6 text-white bg-[#443e45] border-2 border-[#b3b2b6] text-[20px] cursor-pointer hover:bg-[#575058] transition-colors text-center inline-block whitespace-nowrap">
+          Sign Out
+        </a>
+
+        <input type="checkbox" id="menu-toggle" class="hidden">
+        <label for="menu-toggle" class="inline-flex lg:hidden flex-col justify-between w-8 h-6 cursor-pointer order-last">
+            <span class="w-full h-1 bg-[#b8d5d9] rounded transition-all"></span>
+            <span class="w-full h-1 bg-[#b8d5d9] rounded transition-all"></span>
+            <span class="w-full h-1 bg-[#b8d5d9] rounded transition-all"></span>
+        </label>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="lg:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out bg-[#0d1018] mt-4 rounded-xl border border-white/5">
+      <ul class="flex flex-col gap-2 px-4 text-center">
+        <li><a href="profile.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Profile</a></li>
+        <li><a href="analytics.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Analytics</a></li>
+        <li><a href="bills.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Bill Reminder</a></li>
+        <li><a href="expenses.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Add Expense</a></li>
+        <li><a href="predictions.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">AI Predictions</a></li>
+        <li><a href="settings.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Settings</a></li>
+        <li><a href="about.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">About Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="max-w-7xl mx-auto w-full px-4 md:px-16 flex-1 flex flex-col mb-10 mt-10">
+    <section class="w-full bg-[#0d1018] p-6 rounded-2xl border border-[#1e2d40] shadow-xl flex-1 flex flex-col justify-between">
+      
+      <div>
+        <div class="flex items-center justify-between border-b border-[#1e2d40] pb-4 mb-6">
+            <h2 class="text-3xl font-bold text-white">Budget Planning</h2>
+            <span class="text-[#4e90bf] text-sm uppercase tracking-wider font-semibold">Smart Spend X</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-6">
+            
+            <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+                <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">Total Income</h3>
+                <p class="text-white text-2xl font-bold mt-2">₪ 4,000</p>
+            </div>
+
+            <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+                <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">Total Spent</h3>
+                <p class="text-white text-2xl font-bold mt-2">₪ 3,240</p>
+            </div>
+
+            <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+                <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">Remaining</h3>
+                <p class="text-safe text-2xl font-bold mt-2">₪ 760</p>
+            </div>
+
+            <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+                <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">Budget Used</h3>
+                <p class="text-white text-2xl font-bold mt-2">81%</p>
+            </div>
+
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-6 items-start">
+            
+            <div class="flex flex-col gap-6">
+                
+                <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+                    <h2 class="text-xl font-bold mb-5 text-white">June 2026 Overview</h2>
+                    
+                    <div class="flex justify-between mb-1.5">
+                        <span class="text-[#b8d5d9] text-xs">Overall Budget</span>
+                        <span class="text-white text-xs font-semibold">₪ 3,240 / ₪ 4,000</span>
+                    </div>
+                    <div class="w-full h-2 bg-[#182130] rounded-full overflow-hidden">
+                        <div class="h-full bg-warning rounded-full transition-all duration-300" style="width: 81%"></div>
+                    </div>
+                </div>
+
+                <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-bold text-white">Category Budgets</h3>
+                        <button class="bg-safe text-white text-xs rounded-lg px-3.5 py-1.5 hover:bg-[#178a65] transition-colors cursor-pointer border-none">+ Add Category</button>
+                    </div>
+
+                    <div class="flex items-start gap-3.5 py-3.5 border-b border-[#1e2d40]">
+                        <div class="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center text-lg flex-shrink-0" style="background-color:#2a1f14;">🍔</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between mb-1.5">
+                                <p class="text-light text-sm font-medium">Food & Dining</p>
+                                <p class="text-[#b8d5d9] text-[13px]">₪ 620 / ₪ 800</p>
+                            </div>
+                            <div class="w-full h-2 bg-[#182130] rounded-full overflow-hidden">
+                                <div class="h-full bg-warning rounded-full transition-all duration-300" style="width:77%"></div>
+                            </div>
+                            <p class="text-[#b8d5d9] text-xs mt-1.5">₪ 180 remaining</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3.5 py-3.5 border-b border-[#1e2d40]">
+                        <div class="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center text-lg flex-shrink-0" style="background-color:#14202a;">🚗</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between mb-1.5">
+                                <p class="text-light text-sm font-medium">Transport</p>
+                                <p class="text-[#b8d5d9] text-[13px]">₪ 380 / ₪ 400</p>
+                            </div>
+                            <div class="w-full h-2 bg-[#182130] rounded-full overflow-hidden">
+                                <div class="h-full bg-danger rounded-full transition-all duration-300" style="width:95%"></div>
+                            </div>
+                            <p class="text-danger-text text-xs mt-1.5">₪ 20 remaining — almost over!</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3.5 py-3.5 border-b border-[#1e2d40]">
+                        <div class="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center text-lg flex-shrink-0" style="background-color:#2a142a;">🛍</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between mb-1.5">
+                                <p class="text-light text-sm font-medium">Shopping</p>
+                                <p class="text-[#b8d5d9] text-[13px]">₪ 900 / ₪ 1,200</p>
+                            </div>
+                            <div class="w-full h-2 bg-[#182130] rounded-full overflow-hidden">
+                                <div class="h-full bg-safe rounded-full transition-all duration-300" style="width:75%"></div>
+                            </div>
+                            <p class="text-[#b8d5d9] text-xs mt-1.5">₪ 300 remaining</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3.5 py-3.5 border-b border-[#1e2d40]">
+                        <div class="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center text-lg flex-shrink-0" style="background-color:#2a2a14;">💡</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between mb-1.5">
+                                <p class="text-light text-sm font-medium">Bills & Utilities</p>
+                                <p class="text-[#b8d5d9] text-[13px]">₪ 1,100 / ₪ 1,100</p>
+                            </div>
+                            <div class="w-full h-2 bg-[#182130] rounded-full overflow-hidden">
+                                <div class="h-full bg-danger rounded-full transition-all duration-300" style="width:100%"></div>
+                            </div>
+                            <p class="text-danger-text text-xs mt-1.5">Budget reached!</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3.5 py-3.5">
+                        <div class="w-[42px] h-[42px] rounded-[10px] flex items-center justify-center text-lg flex-shrink-0" style="background-color:#14292a;">💊</div>
+                        <div class="flex-1">
+                            <div class="flex justify-between mb-1.5">
+                                <p class="text-light text-sm font-medium">Health</p>
+                                <p class="text-[#b8d5d9] text-[13px]">₪ 240 / ₪ 500</p>
+                            </div>
+                            <div class="w-full h-2 bg-[#182130] rounded-full overflow-hidden">
+                                <div class="h-full bg-safe rounded-full transition-all duration-300" style="width:48%"></div>
+                            </div>
+                            <p class="text-[#b8d5d9] text-xs mt-1.5">₪ 260 remaining</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="flex flex-col gap-6">
+                
+                <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 text-white">Set Monthly Budget</h3>
+                    <form action="" method="">
+                        <div class="flex flex-col gap-1 mb-3.5">
+                            <label for="income" class="text-[#b8d5d9] text-xs">Monthly Income</label>
+                            <input type="number" id="income" name="income" placeholder="e.g. 4000"
+                                class="bg-[#182130] border border-[#1e2d40] rounded-lg px-3 py-2.5 text-white text-sm outline-none w-full placeholder-[#555] focus:border-safe transition-colors">
+                        </div>
+                        <div class="flex flex-col gap-1 mb-3.5">
+                            <label for="category" class="text-[#b8d5d9] text-xs">Category</label>
+                            <select id="category" name="category"
+                                class="bg-[#182130] border border-[#1e2d40] rounded-lg px-3 py-2.5 text-white text-sm outline-none w-full cursor-pointer focus:border-safe transition-colors">
+                                <option value="">Select a category</option>
+                                <option value="food">Food & Dining</option>
+                                <option value="transport">Transport</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="bills">Bills & Utilities</option>
+                                <option value="health">Health</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="flex flex-col gap-1 mb-4">
+                            <label for="budget-amount" class="text-[#b8d5d9] text-xs">Budget Amount</label>
+                            <input type="number" id="budget-amount" name="budget-amount" placeholder="e.g. 800"
+                                class="bg-[#182130] border border-[#1e2d40] rounded-lg px-3 py-2.5 text-white text-sm outline-none w-full placeholder-[#555] focus:border-safe transition-colors">
+                        </div>
+                        <button type="submit"
+                            class="w-full py-3 rounded-2xl text-white font-bold bg-gradient-to-r from-[#4e90bf] to-[#76549b] hover:opacity-90 transition-opacity cursor-pointer text-sm">
+                            Save Budget →
+                        </button>
+                    </form>
+                </div>
+
+                <div class="border border-[#4e90bf] bg-gradient-to-br from-[#0d1018] to-[#1a3a52] rounded-xl p-6">
+                    <h3 class="text-xl font-bold mb-4 text-white">Smart Tips</h3>
+
+                    <div class="flex items-start gap-3 py-3 border-b border-white/10">
+                        <div class="w-[38px] h-[38px] bg-[#141b26] rounded-[10px] flex items-center justify-center text-lg flex-shrink-0">💡</div>
+                        <div class="flex-1">
+                            <p class="text-white text-sm font-semibold mb-0.5">Transport budget almost full</p>
+                            <p class="text-slate-300 text-[13px] leading-relaxed">You have only ₪ 20 left for transport this month. Consider using public transport for the rest of the month.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 py-3 border-b border-white/10">
+                        <div class="w-[38px] h-[38px] bg-[#141b26] rounded-[10px] flex items-center justify-center text-lg flex-shrink-0">📊</div>
+                        <div class="flex-1">
+                            <p class="text-white text-sm font-semibold mb-0.5">You are on track</p>
+                            <p class="text-slate-300 text-[13px] leading-relaxed">Your food spending is within budget. Keep it up to finish the month with savings.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-3 py-3">
+                        <div class="w-[38px] h-[38px] bg-[#141b26] rounded-[10px] flex items-center justify-center text-lg flex-shrink-0">🎯</div>
+                        <div class="flex-1">
+                            <p class="text-white text-sm font-semibold mb-0.5">Set a savings goal</p>
+                            <p class="text-slate-300 text-[13px] leading-relaxed">You have ₪ 760 remaining this month. Consider moving some to a savings category.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+      </div>
+
+      <footer id="footer" class="border-t border-white/10 pt-6 mt-12 text-center text-slate-500 text-sm">
+        © 2026 SmartSpend X — Built by Jalil Wasaya
+      </footer>
+
+    </section>
+  </main>
+
+</body>
+</html>
