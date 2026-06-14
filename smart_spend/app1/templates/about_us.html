@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,14 +42,19 @@
 
     <nav class="navbar flex items-center justify-between px-[60px] py-4 bg-[#0d1018] border-b border-[#1e2d40] sticky top-0 z-[100]">
         <div class="nav-left flex items-center gap-2.5">
-            <img src="smartspendx_icon_only.png" alt="Logo" class="nav-logo w-9 h-9 rounded-full object-cover">
-            <p class="nav-brand text-base font-semibold text-white">Smart Spend</p>
+            <img src="{% static 'images/logo.png' %}" alt="Logo" class="nav-logo  w-[120px] rounded-full object-cover">
+      <h1 class="text-white text-[26px] font-bold">
+        Smart Spend
+        <span class="text-[30px] bg-gradient-to-r from-[#536eda] via-[#3ea8cd] to-[#76549b] bg-clip-text text-transparent animate-gradient">
+          X
+        </span>
+      </h1>
+
         </div>
         <div class="nav-links flex gap-8">
-            <a href="budget.html" class="text-sm text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Budget</a>
-            <a href="profile.html" class="text-sm text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Profile</a>
-            <a href="contact.html" class="text-sm text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Contact</a>
-            <a href="settings.html" class="text-sm text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Settings</a>
+            <a href="{% url 'profile' %}" class="text-sm text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Profile</a>
+            <a href="{% url 'dashboard' %}" class="text-sm text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Dashboard</a>
+            <a href="{% url 'settings' %}" class="text-sm text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Settings</a>
         </div>
     </nav>
 
@@ -101,7 +107,7 @@
 
                 <div class="team-card bg-[#141b26] border border-[#1e2d40] rounded-[14px] px-4 py-7 text-center flex flex-col items-center">
                     <div class="team-card-img-wrap w-[120px] h-[120px] rounded-full mx-auto mb-4 overflow-hidden relative">
-                        <img src="0I3A6483.JPG" alt="Chaker" class="team-card-img w-full h-full object-cover object-top block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <img src="{% static 'images/chaker.JPG' %}" alt="Chaker" class="team-card-img w-full h-full object-cover object-top block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="team-card-fallback hidden w-full h-full rounded-full items-center justify-center text-white text-[28px] font-semibold" style="background:#1D9E75">CI</div>
                     </div>
                     <p class="team-card-name text-[15px] font-semibold text-white mb-1">Chaker Ibrahim</p>
@@ -116,7 +122,7 @@
 
                 <div class="team-card bg-[#141b26] border border-[#1e2d40] rounded-[14px] px-4 py-7 text-center flex flex-col items-center">
                     <div class="team-card-img-wrap w-[120px] h-[120px] rounded-full mx-auto mb-4 overflow-hidden relative">
-                        <img src="jalil.jpeg" alt="Jalil" class="team-card-img w-full h-full object-cover object-top block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <img src="{% static 'images/jalil.jpeg' %}" alt="Jalil" class="team-card-img w-full h-full object-cover object-top block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="team-card-fallback hidden w-full h-full rounded-full items-center justify-center text-white text-[28px] font-semibold" style="background:#185FA5">JW</div>
                     </div>
                     <p class="team-card-name text-[15px] font-semibold text-white mb-1">Jalil Wasaya</p>
@@ -131,22 +137,22 @@
 
                 <div class="team-card bg-[#141b26] border border-[#1e2d40] rounded-[14px] px-4 py-7 text-center flex flex-col items-center">
                     <div class="team-card-img-wrap w-[120px] h-[120px] rounded-full mx-auto mb-4 overflow-hidden relative">
-                        <img src="aws.jpeg" alt="Aws" class="team-card-img w-full h-full object-cover object-top block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <img src="{% static 'images/aws.png' %}" alt="Aws" class="team-card-img w-full h-full object-cover object-top block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="team-card-fallback hidden w-full h-full rounded-full items-center justify-center text-white text-[28px] font-semibold" style="background:#7F77DD">AS</div>
                     </div>
                     <p class="team-card-name text-[15px] font-semibold text-white mb-1">Aws Sleebi</p>
                     <p class="team-card-role text-[11px] text-brandGreen mb-2.5 uppercase tracking-[0.06em]">Full Stack Developer</p>
                     <p class="team-card-desc text-[13px] text-[#b8d5d9] leading-[1.6] mb-4 flex-1">Powers the AI predictions engine and spending analytics that make Smart Spend truly smart.</p>
                     <div class="social-links flex gap-2.5 justify-center mt-auto">
-                        <a href="https://www.instagram.com/nouzen144/" class="social-btn w-[34px] h-[34px] rounded-full bg-[#182130] border border-[#1e2d40] flex items-center justify-center text-[#b8d5d9] text-sm no-underline transition-all hover:bg-brandGreen hover:border-brandGreen hover:text-white" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-btn w-[34px] h-[34px] rounded-full bg-[#182130] border border-[#1e2d40] flex items-center justify-center text-[#b8d5d9] text-sm no-underline transition-all hover:bg-brandGreen hover:border-brandGreen hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="" class="social-btn w-[34px] h-[34px] rounded-full bg-[#182130] border border-[#1e2d40] flex items-center justify-center text-[#b8d5d9] text-sm no-underline transition-all hover:bg-brandGreen hover:border-brandGreen hover:text-white" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="" class="social-btn w-[34px] h-[34px] rounded-full bg-[#182130] border border-[#1e2d40] flex items-center justify-center text-[#b8d5d9] text-sm no-underline transition-all hover:bg-brandGreen hover:border-brandGreen hover:text-white"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.linkedin.com/in/aws-sleebi-9225583b3/" class="social-btn w-[34px] h-[34px] rounded-full bg-[#182130] border border-[#1e2d40] flex items-center justify-center text-[#b8d5d9] text-sm no-underline transition-all hover:bg-brandGreen hover:border-brandGreen hover:text-white" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
                 <div class="team-card bg-[#141b26] border border-[#1e2d40] rounded-[14px] px-4 py-7 text-center flex flex-col items-center">
                     <div class="team-card-img-wrap w-[120px] h-[120px] rounded-full mx-auto mb-4 overflow-hidden relative">
-                        <img src="husni.jpeg" alt="Husni" class="team-card-img w-full h-full object-cover object-top block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <img src="{% static 'images/husni.jpeg' %}" alt="Husni" class="team-card-img w-full h-full object-cover object-top block" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                         <div class="team-card-fallback hidden w-full h-full rounded-full items-center justify-center text-white text-[28px] font-semibold" style="background:#D85A30">HA</div>
                     </div>
                     <p class="team-card-name text-[15px] font-semibold text-white mb-1">Husni Ahmad</p>
@@ -218,26 +224,44 @@
                     <a href="mailto:media@smartspend.com" class="contact-email-link text-xs text-brandGreen no-underline">media@smartspend.com</a>
                 </div>
             </div>
-            <form class="contact-form flex flex-col gap-3" action="" method="">
-                <input type="text" placeholder="Your name" class="bg-[#141b26] border border-[#1e2d40] p-3 text-white text-base outline-none font-serif placeholder-[#555] rounded-lg">
-                <input type="email" placeholder="Email address" class="bg-[#141b26] border border-[#1e2d40] p-3 text-white text-base outline-none font-serif placeholder-[#555] rounded-lg">
-                <textarea rows="4" placeholder="Your message" class="bg-[#141b26] border border-[#1e2d40] p-3 text-white text-base outline-none font-serif placeholder-[#555] resize-vertical rounded-lg"></textarea>
-                <button type="submit" class="btn-send bg-brandGreen text-white border-none px-7 py-3 text-base cursor-pointer self-start hover:bg-brandGreenHover rounded-lg transition-colors">Send message</button>
-            </form>
+
+        <form method="POST" class="flex flex-col gap-3">
+
+            {% csrf_token %}
+
+            <input type="text"
+                   placeholder="Your name"
+                   class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg">
+
+            <input type="email"
+                   placeholder="Email address"
+                   class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg">
+
+            <textarea rows="4"
+                      placeholder="Your message"
+                      class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg"></textarea>
+
+            <button type="submit"
+                    class="bg-[#1D9E75] hover:bg-[#178a65] text-white px-7 py-3 rounded-lg transition-colors">
+                Send message
+            </button>
+
+        </form>
+
+
         </div>
     </section>
 
     <footer class="footer bg-[#0d1018] border-t border-[#1e2d40] px-[60px] pb-6 pt-10">
         <div class="footer-inner flex items-center justify-between mb-6">
-            <div class="footer-left flex items-center gap-2.5">
-                <img src="smartspendx_icon_only.png" alt="Logo" class="footer-logo w-8 h-8 rounded-full object-cover">
-                <p class="footer-brand text-white text-sm font-semibold">Smart Spend</p>
+            <div class="footer-left flex items-center gap-2.5 h-20">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" class="footer-logo h-[100px] w-[100px] rounded-full object-cover">
+                <p class="footer-brand text-white text-lg font-semibold">Smart Spend X</p>
             </div>
-            <div class="footer-links flex gap-7">
-                <a href="budget.html" class="text-[13px] text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Budget</a>
-                <a href="profile.html" class="text-[13px] text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Profile</a>
-                <a href="contact.html" class="text-[13px] text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Contact</a>
-                <a href="settings.html" class="text-[13px] text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Settings</a>
+            <div class="footer-links flex gap-7 ">
+                <a href="{% url 'profile' %}" class="text-[13px] text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Profile</a>
+                <a href="{% url 'dashboard' %}" class="text-[13px] text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Dashboard</a>
+                <a href="{% url 'settings' %}" class="text-[13px] text-[#b8d5d9] no-underline hover:text-brandGreen transition-colors">Settings</a>
             </div>
         </div>
         <p class="footer-copy text-xs text-[#555] text-center border-t border-[#1e2d40] pt-5">© 2026 Smart Spend. All rights reserved. Made with ❤ in Palestine.</p>

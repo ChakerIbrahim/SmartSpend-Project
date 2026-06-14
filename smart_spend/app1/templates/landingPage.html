@@ -1,17 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SmartSpend X</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" href="image/favicon.png" />
+
+  <link rel="icon" href="{% static 'image/favicon.png' %}" />
+
   <style>
-    /* Required for your custom branding animations */
     @keyframes gradientMove {
-        0%   { background-position: 0% center; }
+        0% { background-position: 0% center; }
         100% { background-position: 200% center; }
     }
+
     .animate-gradient {
         background-size: 200% auto;
         animation: gradientMove 3s linear infinite;
@@ -21,185 +25,226 @@
 
 <body class="bg-[#020617] text-white font-sans">
 
-  <main class="min-h-screen overflow-hidden">
+<main class="min-h-screen overflow-hidden">
 
-    <nav class="max-w-8xl mx-auto px-6 py-5 flex items-center justify-around">
-        
-        <div class="flex flex-col items-center bg-[#020617] p-2 rounded-lg">
-            <img src="images/smartspendx_icon_only.png" alt="Page Logo" class="w-[100px] h-full object-contain">
-            <h1 class="text-white text-[26px] font-bold">Smart Spend <span class="text-[30px] bg-gradient-to-r from-[#536eda] via-[#3ea8cd] to-[#76549b] bg-clip-text text-transparent animate-gradient">X</span></h1>
-            <p class="text-[20px] bg-gradient-to-r from-[#3ea8cd] via-[#536eda] to-[#76549b] bg-clip-text text-transparent animate-gradient">Smarter Money Better Future</p>
+<nav class="max-w-8xl mx-auto px-6 py-5 flex items-center justify-around">
+
+    <div class="flex flex-col items-center bg-[#020617] p-2 rounded-lg">
+        <img src="{% static 'images/logo.png' %}"
+             alt="Page Logo"
+             class="w-[100px] h-full object-contain">
+
+        <h1 class="text-white text-[26px] font-bold">
+            Smart Spend
+            <span class="text-[30px] bg-gradient-to-r from-[#536eda] via-[#3ea8cd] to-[#76549b] bg-clip-text text-transparent animate-gradient">
+                X
+            </span>
+        </h1>
+
+        <p class="text-[20px] bg-gradient-to-r from-[#3ea8cd] via-[#536eda] to-[#76549b] bg-clip-text text-transparent animate-gradient">
+            Smarter Money Better Future
+        </p>
+    </div>
+
+    <div class="hidden md:flex items-center gap-2 rounded-full bg-white/5 border border-white/10 p-2">
+
+      <a href="#features"
+         class="px-12 py-6 rounded-full text-[20px] text-slate-300 hover:bg-white hover:text-black transition">
+        Features
+      </a>
+
+      <a href="#dashboard"
+         class="px-12 py-6 rounded-full text-[20px] text-slate-300 hover:bg-white hover:text-black transition">
+        Dashboard
+      </a>
+
+      <a href="#footer"
+         class="px-12 py-6 rounded-full text-[20px] text-slate-300 hover:bg-white hover:text-black transition">
+        Contact
+      </a>
+
+    </div>
+
+    <a href="{% url 'login' %}"
+       class="rounded-[30px] w-40 p-[1rem] text-white bg-[#0b1d4a] border-2 border-[#b3b2b6] text-[20px] cursor-pointer hover:bg-[#575058] transition-colors text-center inline-block">
+        Sign In
+    </a>
+
+</nav>
+
+<section class="relative max-w-7xl mx-auto px-6 pt-20 pb-28 text-center">
+
+  <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,#2563eb55,transparent_35%),radial-gradient(circle_at_center,#7c3aed33,transparent_40%)]"></div>
+
+  <span class="inline-flex rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-cyan-300">
+    Personal finance made simple
+  </span>
+
+  <h1 class="mt-8 text-5xl md:text-7xl font-black tracking-tight leading-tight">
+    Take control of your money
+    <br class="hidden md:block">
+    with one smart dashboard.
+  </h1>
+
+  <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-400 leading-8">
+    Track expenses, manage budgets, scan receipts, and understand your financial habits with a clean and powerful interface.
+  </p>
+
+  <div class="mt-10 flex justify-center gap-4 flex-wrap">
+
+    <a href="{% url 'register' %}"
+       class="rounded-full bg-cyan-300 text-black px-8 py-4 font-bold hover:bg-white transition">
+      Get Started
+    </a>
+
+    <a href="#dashboard"
+       class="rounded-full border border-white/10 bg-white/5 px-8 py-4 font-bold hover:bg-white hover:text-black transition">
+      View Preview
+    </a>
+
+  </div>
+
+  <div id="dashboard"
+       class="mt-20 max-w-5xl mx-auto rounded-[32px] border border-white/10 bg-[#0f172a]/80 p-4 shadow-2xl backdrop-blur">
+
+    <div class="rounded-[24px] bg-[#020617] p-6 md:p-8">
+
+      <div class="flex items-center justify-between mb-8">
+
+        <div>
+          <p class="text-slate-400 text-sm">Total Balance</p>
+          <h2 class="text-4xl font-black mt-1">$8,420</h2>
         </div>
 
-        <div class="hidden md:flex items-center gap-2 rounded-full bg-white/5 border border-white/10 p-2">
-          <a href="#features" class="px-12 py-6 rounded-full text-[20px] text-slate-300 hover:bg-white hover:text-black transition">
-            Features
-          </a>
-          <a href="#dashboard" class="px-12 py-6 rounded-full text-[20px] text-slate-300 hover:bg-white hover:text-black transition">
-            Dashboard
-          </a>
-          <a href="#footer" class="px-12 py-6 rounded-full text-[20px] text-slate-300 hover:bg-white hover:text-black transition">
-            Contact
-          </a>
+        <div class="rounded-full bg-emerald-400/10 px-4 py-2 text-emerald-300 text-sm">
+          +12.4%
         </div>
 
-          <a href="login.html" class="rounded-[30px] w-40 p-[1rem] text-white bg-[#0b1d4a] border-2 border-[#b3b2b6] text-[20px] cursor-pointer hover:bg-[#575058] transition-colors text-center inline-block">
-            Sign In
-          </a>
+      </div>
 
-    </nav>
+      <div class="grid md:grid-cols-4 gap-4">
 
-    <section class="relative max-w-7xl mx-auto px-6 pt-20 pb-28 text-center">
-      <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,#2563eb55,transparent_35%),radial-gradient(circle_at_center,#7c3aed33,transparent_40%)]"></div>
+        <div class="md:col-span-2 rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-400 p-6 text-left">
+          <p class="text-sm opacity-80">Smart Card</p>
+          <h3 class="mt-16 tracking-[4px]">2918 2610 4629</h3>
+          <p class="mt-4 font-semibold">Johnny Depp</p>
+        </div>
 
-      <span class="inline-flex rounded-full border border-white/10 bg-white/5 px-5 py-2 text-sm text-cyan-300">
-        Personal finance made simple
-      </span>
+        <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
+          <p class="text-slate-400">Budget</p>
+          <h3 class="text-3xl font-black mt-3">72%</h3>
 
-      <h1 class="mt-8 text-5xl md:text-7xl font-black tracking-tight leading-tight">
-        Take control of your money <br class="hidden md:block">
-        with one smart dashboard.
-      </h1>
+          <div class="mt-5 h-2 bg-white/10 rounded-full">
+            <div class="h-2 w-[72%] bg-cyan-300 rounded-full"></div>
+          </div>
+        </div>
 
-      <p class="mt-6 max-w-2xl mx-auto text-lg text-slate-400 leading-8">
-        Track expenses, manage budgets, scan receipts, and understand your financial habits with a clean and powerful interface.
+        <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
+          <p class="text-slate-400">Saved</p>
+          <h3 class="text-3xl font-black mt-3">$1,280</h3>
+          <p class="text-sm text-slate-500 mt-4">This month</p>
+        </div>
+
+      </div>
+
+      <div class="mt-4 grid md:grid-cols-3 gap-4">
+
+        <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
+          <p class="text-cyan-300">Food</p>
+          <h3 class="text-2xl font-bold mt-2">$430</h3>
+        </div>
+
+        <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
+          <p class="text-violet-300">Bills</p>
+          <h3 class="text-2xl font-bold mt-2">$980</h3>
+        </div>
+
+        <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
+          <p class="text-rose-300">Alert</p>
+          <h3 class="text-2xl font-bold mt-2">Food +18%</h3>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="features" class="max-w-7xl mx-auto px-6 py-24">
+
+  <div class="text-center mb-20">
+
+    <span class="text-cyan-300 uppercase tracking-[4px] text-sm">
+      Features
+    </span>
+
+    <h2 class="mt-4 text-4xl md:text-5xl font-black">
+      Everything you need for smarter finance.
+    </h2>
+
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <div class="relative rounded-[34px] border border-white/10 bg-white/5 backdrop-blur-xl p-10 pt-24 hover:-translate-y-2 transition duration-300">
+
+      <img src="{% static 'image/control.png' %}"
+           class="absolute -top-12 left-10 w-24 h-24 object-contain mix-blend-screen"
+           alt="control">
+
+      <h3 class="text-3xl font-black leading-tight">
+        Have perfect control
+      </h3>
+
+      <p class="mt-6 text-slate-400 leading-9 text-lg">
+        Track all your expenses, cards, subscriptions, and financial activity in one clean dashboard.
       </p>
 
-      <div class="mt-10 flex justify-center gap-4 flex-wrap">
-        <a href="register.html" class="rounded-full bg-cyan-300 text-black px-8 py-4 font-bold hover:bg-white transition">
-          Get Started
-        </a>
+    </div>
 
-        <a href="#dashboard" class="rounded-full border border-white/10 bg-white/5 px-8 py-4 font-bold hover:bg-white hover:text-black transition">
-          View Preview
-        </a>
-      </div>
+    <div class="relative rounded-[34px] border border-white/10 bg-white/5 backdrop-blur-xl p-10 pt-24 hover:-translate-y-2 transition duration-300">
 
-      <div id="dashboard" class="mt-20 max-w-5xl mx-auto rounded-[32px] border border-white/10 bg-[#0f172a]/80 p-4 shadow-2xl backdrop-blur">
-        <div class="rounded-[24px] bg-[#020617] p-6 md:p-8">
+      <img src="{% static 'image/chart.png' %}"
+           class="absolute -top-12 left-10 w-24 h-24 object-contain mix-blend-screen"
+           alt="chart">
 
-          <div class="flex items-center justify-between mb-8">
-            <div>
-              <p class="text-slate-400 text-sm">Total Balance</p>
-              <h2 class="text-4xl font-black mt-1">$8,420</h2>
-            </div>
+      <h3 class="text-3xl font-black leading-tight">
+        Get a quick overview
+      </h3>
 
-            <div class="rounded-full bg-emerald-400/10 px-4 py-2 text-emerald-300 text-sm">
-              +12.4%
-            </div>
-          </div>
+      <p class="mt-6 text-slate-400 leading-9 text-lg">
+        Understand your monthly income and spending with modern charts and summaries.
+      </p>
 
-          <div class="grid md:grid-cols-4 gap-4">
-            <div class="md:col-span-2 rounded-3xl bg-gradient-to-br from-blue-600 to-cyan-400 p-6 text-left">
-              <p class="text-sm opacity-80">Smart Card</p>
-              <h3 class="mt-16 tracking-[4px]">2918 2610 4629</h3>
-              <p class="mt-4 font-semibold">Johnny Depp</p>
-            </div>
+    </div>
 
-            <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
-              <p class="text-slate-400">Budget</p>
-              <h3 class="text-3xl font-black mt-3">72%</h3>
-              <div class="mt-5 h-2 bg-white/10 rounded-full">
-                <div class="h-2 w-[72%] bg-cyan-300 rounded-full"></div>
-              </div>
-            </div>
+    <div class="relative rounded-[34px] border border-white/10 bg-white/5 backdrop-blur-xl p-10 pt-24 hover:-translate-y-2 transition duration-300">
 
-            <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
-              <p class="text-slate-400">Saved</p>
-              <h3 class="text-3xl font-black mt-3">$1,280</h3>
-              <p class="text-sm text-slate-500 mt-4">This month</p>
-            </div>
-          </div>
+      <img src="{% static 'image/money.png' %}"
+           class="absolute -top-12 left-10 w-24 h-24 object-contain mix-blend-screen"
+           alt="money">
 
-          <div class="mt-4 grid md:grid-cols-3 gap-4">
-            <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
-              <p class="text-cyan-300">Food</p>
-              <h3 class="text-2xl font-bold mt-2">$430</h3>
-            </div>
+      <h3 class="text-3xl font-black leading-tight">
+        Use smart budgets
+      </h3>
 
-            <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
-              <p class="text-violet-300">Bills</p>
-              <h3 class="text-2xl font-bold mt-2">$980</h3>
-            </div>
+      <p class="mt-6 text-slate-400 leading-9 text-lg">
+        Set financial goals and stay within budget using real-time spending insights.
+      </p>
 
-            <div class="rounded-3xl bg-white/5 border border-white/10 p-6 text-left">
-              <p class="text-rose-300">Alert</p>
-              <h3 class="text-2xl font-bold mt-2">Food +18%</h3>
-            </div>
-          </div>
+    </div>
 
-        </div>
-      </div>
-    </section>
+  </div>
 
-    <section id="features" class="max-w-7xl mx-auto px-6 py-24">
+</section>
 
-      <div class="text-center mb-20">
-        <span class="text-cyan-300 uppercase tracking-[4px] text-sm">
-          Features
-        </span>
+<footer id="footer" class="border-t border-white/10 py-7 text-center text-slate-500">
+  © 2026 SmartSpend X — Built by Jalil Wasaya
+</footer>
 
-        <h2 class="mt-4 text-4xl md:text-5xl font-black">
-          Everything you need for smarter finance.
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-
-        <div class="relative rounded-[34px] border border-white/10 bg-white/5 backdrop-blur-xl p-10 pt-24 hover:-translate-y-2 transition duration-300">
-
-          <img src="image/control.png"
-               class="absolute -top-12 left-10 w-24 h-24 object-contain mix-blend-screen"
-               alt="control">
-
-          <h3 class="text-3xl font-black leading-tight">
-            Have perfect control
-          </h3>
-
-          <p class="mt-6 text-slate-400 leading-9 text-lg">
-            Track all your expenses, cards, subscriptions, and financial activity in one clean dashboard.
-          </p>
-        </div>
-
-        <div class="relative rounded-[34px] border border-white/10 bg-white/5 backdrop-blur-xl p-10 pt-24 hover:-translate-y-2 transition duration-300">
-
-          <img src="image/chart.png"
-               class="absolute -top-12 left-10 w-24 h-24 object-contain mix-blend-screen"
-               alt="chart">
-
-          <h3 class="text-3xl font-black leading-tight">
-            Get a quick overview
-          </h3>
-
-          <p class="mt-6 text-slate-400 leading-9 text-lg">
-            Understand your monthly income and spending with modern charts and summaries.
-          </p>
-        </div>
-
-        <div class="relative rounded-[34px] border border-white/10 bg-white/5 backdrop-blur-xl p-10 pt-24 hover:-translate-y-2 transition duration-300">
-
-          <img src="image/money.png"
-               class="absolute -top-12 left-10 w-24 h-24 object-contain mix-blend-screen"
-               alt="money">
-
-          <h3 class="text-3xl font-black leading-tight">
-            Use smart budgets
-          </h3>
-
-          <p class="mt-6 text-slate-400 leading-9 text-lg">
-            Set financial goals and stay within budget using real-time spending insights.
-          </p>
-        </div>
-
-      </div>
-
-    </section>
-
-    <footer id="footer" class="border-t border-white/10 py-7 text-center text-slate-500">
-      © 2026 SmartSpend X — Built by Jalil Wasaya
-    </footer>
-
-  </main>
+</main>
 
 </body>
 </html>

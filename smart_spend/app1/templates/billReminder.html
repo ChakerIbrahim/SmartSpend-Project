@@ -1,152 +1,297 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Bill Reminder | SmartSpend X</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="icon" href="{% static 'image/favicon.png' %}">
+
   <style>
-    /* Baseline overrides and animated text styling */
     * {
         font-family: "Noto Serif", serif;
     }
+
     @keyframes gradientMove {
-        0%   { background-position: 0% center; }
+        0% { background-position: 0% center; }
         100% { background-position: 200% center; }
     }
+
     .animate-gradient {
         background-size: 200% auto;
         animation: gradientMove 3s linear infinite;
     }
-    /* Controls the toggle interaction cleanly without requiring custom JS files */
+
     #menu-toggle:checked ~ #mobile-menu {
         max-height: 500px;
         opacity: 1;
         padding: 1rem 0;
     }
-</style>
+  </style>
 </head>
 
 <body class="bg-[#182130] text-[#b8d5d9] min-h-screen flex flex-col gap-6">
+<nav class="bg-gradient-to-r from-[#0d1018] via-[#0d1018] to-[#203361] px-6 md:px-16 py-5 relative z-50">
 
-  <nav class="bg-gradient-to-r from-[#0d1018] via-[#0d1018] to-[#203361] px-6 md:px-16 py-5 relative z-50">
-    <div class="max-w-8xl mx-auto flex justify-between items-center">
-      
-      <div class="flex flex-col items-center bg-[#0d1018] p-2 rounded-lg min-w-[200px]">
-          <img src="images/smartspendx_icon_only.png" alt="Page Logo" class="w-[100px] h-auto object-contain">
-          <h1 class="text-white text-[26px] font-bold">Smart Spend <span class="text-[30px] bg-gradient-to-r from-[#536eda] via-[#3ea8cd] to-[#76549b] bg-clip-text text-transparent animate-gradient">X</span></h1>
-          <p class="text-[20px] bg-gradient-to-r from-[#3ea8cd] via-[#536eda] to-[#76549b] bg-clip-text text-transparent animate-gradient">Smarter Money Better Future</p>
-      </div>
+  <div class="max-w-8xl mx-auto flex justify-between items-center">
 
-      <div class="hidden lg:flex items-center gap-2 rounded-full bg-white/5 border border-white/10 p-2 mx-4">
-        <a href="" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">Dashboard</a>
-        <a href="" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">Profile</a>
-        <a href="" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">Settings</a>
-        <a href="" class="px-4 py-2 rounded-full text-sm text-slate-300 hover:bg-white hover:text-black transition whitespace-nowrap">About Us</a>
-      </div>
+    <div class="flex flex-col items-center bg-[#0d1018] p-2 rounded-lg min-w-[200px]">
 
-      <div class="flex items-center gap-4">
-        <a href="login.html" class="rounded-[20px] p-[0.6rem] px-6 text-white bg-[#443e45] border-2 border-[#b3b2b6] text-[20px] cursor-pointer hover:bg-[#575058] transition-colors text-center inline-block whitespace-nowrap">
-          Sign Out
+    <img src="{% static 'images/logo.png' %}"
+           alt="Page Logo"
+           class="w-[100px] h-auto object-contain">
+
+      <h1 class="text-white text-[26px] font-bold">
+        Smart Spend
+        <span class="text-[30px] bg-gradient-to-r from-[#536eda] via-[#3ea8cd] to-[#76549b] bg-clip-text text-transparent animate-gradient">
+          X
+        </span>
+      </h1>
+
+      <p class="text-[20px] bg-gradient-to-r from-[#3ea8cd] via-[#536eda] to-[#76549b] bg-clip-text text-transparent animate-gradient">
+        Smarter Money Better Future
+      </p>
+
+    </div>
+
+    <div class="hidden lg:flex items-center gap-2 rounded-full bg-white/5 border border-white/10 p-2 mx-4">
+
+      <a href="{% url 'dashboard' %}"
+         class="px-12 py-12 rounded-full text-xl text-slate-300 hover:bg-white hover:text-black transition">
+        Dashboard
+      </a>
+
+      <a href="{% url 'profile' %}"
+         class="px-12 py-12 rounded-full text-xl text-slate-300 hover:bg-white hover:text-black transition">
+        Profile
+      </a>
+
+      <a href="{% url 'settings' %}"
+         class="px-12 py-12 rounded-full text-xl text-slate-300 hover:bg-white hover:text-black transition">
+        Settings
+      </a>
+
+      <a href="{% url 'about_us' %}"
+         class="px-12 py-12 rounded-full text-xl text-slate-300 hover:bg-white hover:text-black transition">
+        About Us
+      </a>
+
+    </div>
+
+    <div class="flex items-center gap-4">
+
+      <a href="{% url 'landing' %}"
+         class="rounded-[20px] p-[0.6rem] px-6 text-white bg-[#443e45] border-2 border-[#b3b2b6] text-[20px] hover:bg-[#575058] transition-colors text-center inline-block">
+        Sign Out
+      </a>
+
+      <input type="checkbox" id="menu-toggle" class="hidden">
+
+      <label for="menu-toggle" class="inline-flex lg:hidden flex-col justify-between w-8 h-6 cursor-pointer order-last">
+        <span class="w-full h-1 bg-[#b8d5d9] rounded"></span>
+        <span class="w-full h-1 bg-[#b8d5d9] rounded"></span>
+        <span class="w-full h-1 bg-[#b8d5d9] rounded"></span>
+      </label>
+
+    </div>
+
+  </div>
+
+  <div id="mobile-menu" class="lg:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out bg-[#0d1018] mt-4 rounded-xl border border-white/5">
+
+    <ul class="flex flex-col gap-2 px-4 text-center">
+
+      <li>
+        <a href="{% url 'profile' %}" class="block py-2 text-slate-400 text-xl hover:bg-white/5 rounded-lg">
+          Profile
         </a>
+      </li>
 
-        <input type="checkbox" id="menu-toggle" class="hidden">
-        <label for="menu-toggle" class="inline-flex lg:hidden flex-col justify-between w-8 h-6 cursor-pointer order-last">
-            <span class="w-full h-1 bg-[#b8d5d9] rounded transition-all"></span>
-            <span class="w-full h-1 bg-[#b8d5d9] rounded transition-all"></span>
-            <span class="w-full h-1 bg-[#b8d5d9] rounded transition-all"></span>
+      <li>
+        <a href="{% url 'monthly_report' %}" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">
+          Analytics
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'bill_reminder' %}" class="block py-2 bg-white/10 text-white rounded-lg font-bold">
+          Bill Reminder
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'expenses' %}" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">
+          Add Expense
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'settings' %}" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">
+          Settings
+        </a>
+      </li>
+
+      <li>
+        <a href="{% url 'about_us' %}" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">
+          About Us
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+<main class="max-w-7xl mx-auto w-full px-4 md:px-16 flex-1">
+
+<section class="w-full bg-[#0d1018] p-6 rounded-2xl border border-[#1e2d40] shadow-xl">
+
+  <h2 class="text-3xl font-bold border-b border-[#1e2d40] pb-4 mb-6">
+    Bill Reminder
+  </h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+
+    <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+      <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">
+        Upcoming Bills
+      </h3>
+
+      <p class="text-white text-3xl font-bold mt-2">
+        {{ upcoming_count }}
+      </p>
+    </div>
+
+    <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+      <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">
+        Total Needed
+      </h3>
+
+      <p class="text-white text-3xl font-bold mt-2">
+        {{ currency }}{{ total_needed }}
+      </p>
+    </div>
+
+    <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6 sm:col-span-2 lg:col-span-1">
+      <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">
+        Next Payment
+      </h3>
+
+      <p class="text-white text-3xl font-bold mt-2">
+        {% if next_bill %}
+          {{ next_bill.name }}
+        {% else %}
+          No Bills
+        {% endif %}
+      </p>
+    </div>
+
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-6">
+
+    <form method="POST"
+          action="{% url 'bill_reminder' %}"
+          class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6 flex flex-col h-full justify-between">
+
+      {% csrf_token %}
+
+      <div>
+        <h3 class="text-xl font-bold mb-5 text-white">
+          Add New Bill
+        </h3>
+
+        <label class="text-sm font-medium text-slate-400">
+          Bill Name
         </label>
-      </div>
-    </div>
 
-    <div id="mobile-menu" class="lg:hidden max-h-0 opacity-0 overflow-hidden transition-all duration-300 ease-in-out bg-[#0d1018] mt-4 rounded-xl border border-white/5">
-      <ul class="flex flex-col gap-2 px-4 text-center">
-        <li><a href="profile.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Profile</a></li>
-        <li><a href="analytics.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Analytics</a></li>
-        <li><a href="bills.html" class="block py-2 bg-white/10 text-white rounded-lg font-bold">Bill Reminder</a></li>
-        <li><a href="add-expense.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Add Expense</a></li>
-        <li><a href="predictions.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">AI Predictions</a></li>
-        <li><a href="settings.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">Settings</a></li>
-        <li><a href="about.html" class="block py-2 text-slate-300 hover:bg-white/5 rounded-lg">About Us</a></li>
-      </ul>
-    </div>
-  </nav>
+        <input name="name"
+               required
+               class="w-full mt-2 mb-4 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white"
+               placeholder="Internet, Rent, Phone">
 
-  <main class="max-w-7xl mx-auto w-full px-4 md:px-16 flex-1">
-    <section class="w-full bg-[#0d1018] p-6 rounded-2xl border border-[#1e2d40] shadow-xl">
-      <h2 class="text-3xl font-bold border-b border-[#1e2d40] pb-4 mb-6">Bill Reminder</h2>
+        <label class="text-sm font-medium text-slate-400">
+          Amount
+        </label>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
-        <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
-          <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">Upcoming Bills</h3>
-          <p class="text-white text-3xl font-bold mt-2">4</p>
-        </div>
+        <input name="amount"
+               type="number"
+               step="0.01"
+               required
+               class="w-full mt-2 mb-4 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white"
+               placeholder="50">
 
-        <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
-          <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">Total Needed</h3>
-          <p class="text-white text-3xl font-bold mt-2">$310</p>
-        </div>
+        <label class="text-sm font-medium text-slate-400">
+          Due Date
+        </label>
 
-        <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6 sm:col-span-2 lg:col-span-1">
-          <h3 class="text-[#4e90bf] text-sm uppercase font-semibold tracking-wider">Next Payment</h3>
-          <p class="text-white text-3xl font-bold mt-2">Internet</p>
-        </div>
+        <input name="due_date"
+               type="date"
+               required
+               class="w-full mt-2 mb-6 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-6">
+      <button type="submit"
+              class="w-full py-3 rounded-2xl text-white font-bold bg-gradient-to-r from-[#4e90bf] to-[#76549b] hover:opacity-90 transition-opacity">
+        Add Reminder →
+      </button>
 
-        <form class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6 flex flex-col h-full justify-between" onsubmit="event.preventDefault();">
+    </form>
+
+    <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
+
+      <h3 class="text-xl font-bold mb-5 text-white">
+        Your Bills
+      </h3>
+
+      <div class="space-y-4">
+
+        {% for bill in bills %}
+
+        <div class="p-4 rounded-xl bg-[#182130] border border-[#1e2d40] flex justify-between items-center hover:border-slate-600 transition-colors">
+
           <div>
-            <h3 class="text-xl font-bold mb-5 text-white">Add New Bill</h3>
+            <h4 class="text-white font-bold">
+              {{ bill.name }}
+            </h4>
 
-            <label class="text-sm font-medium text-slate-400">Bill Name</label>
-            <input class="w-full mt-2 mb-4 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white" placeholder="Internet, Rent, Phone">
-
-            <label class="text-sm font-medium text-slate-400">Amount</label>
-            <input class="w-full mt-2 mb-4 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white" placeholder="$50">
-
-            <label class="text-sm font-medium text-slate-400">Due Date</label>
-            <input type="date" class="w-full mt-2 mb-6 p-3 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+            <p class="text-sm text-[#536eda]">
+              Due date: {{ bill.due_date }}
+            </p>
           </div>
 
-          <button class="w-full py-3 rounded-2xl text-white font-bold bg-gradient-to-r from-[#4e90bf] to-[#76549b] hover:opacity-90 transition-opacity">
-            Add Reminder →
-          </button>
-        </form>
+          <p class="text-[#4e90bf] text-xl font-bold">
+            {{ currency }}{{ bill.amount }}
+          </p>
 
-        <div class="border border-[#1e2d40] bg-[#141b26] rounded-xl p-6">
-          <h3 class="text-xl font-bold mb-5 text-white">Your Bills</h3>
-
-          <div class="space-y-4">
-            <div class="p-4 rounded-xl bg-[#182130] border border-[#1e2d40] flex justify-between items-center hover:border-slate-600 transition-colors">
-              <div>
-                <h4 class="text-white font-bold">Internet Bill</h4>
-                <p class="text-sm text-[#536eda]">Due in 3 days</p>
-              </div>
-              <p class="text-[#4e90bf] text-xl font-bold">$45</p>
-            </div>
-
-            <div class="p-4 rounded-xl bg-[#182130] border border-[#1e2d40] flex justify-between items-center hover:border-slate-600 transition-colors">
-              <div>
-                <h4 class="text-white font-bold">Phone Payment</h4>
-                <p class="text-sm text-[#536eda]">Due in 7 days</p>
-              </div>
-              <p class="text-[#4e90bf] text-xl font-bold">$30</p>
-            </div>
-
-            <div class="p-4 rounded-xl bg-[#182130] border border-[#1e2d40] flex justify-between items-center hover:border-slate-600 transition-colors">
-              <div>
-                <h4 class="text-white font-bold">Rent</h4>
-                <p class="text-sm text-[#536eda]">Due in 12 days</p>
-              </div>
-              <p class="text-[#4e90bf] text-xl font-bold">$235</p>
-            </div>
-          </div>
         </div>
 
+        {% empty %}
+
+        <p class="text-slate-400">
+          No bills added yet.
+        </p>
+
+        {% endfor %}
+
       </div>
-    </section>
-  </main>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
 
 </body>
 </html>
