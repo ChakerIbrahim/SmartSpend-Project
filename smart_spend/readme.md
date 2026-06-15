@@ -49,18 +49,31 @@ The platform provides a centralized solution for managing financial activities a
 - Python
 - Django
 
+
 ### Database
 - SQLite3
 
 ### Frontend
 - HTML5
-- CSS3
 - JavaScript
-- Bootstrap
+- Tailwind
 
 ### Authentication
 - Django Authentication System
 - Django AllAuth
+
+### AI Integration
+
+### API & JSON
+
+### Trello
+
+### Git and Github 
+
+### Figma
+
+### VS Code 
+
 
 ---
 
