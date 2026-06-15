@@ -87,10 +87,48 @@ def register_view(request):
 
 
 def forgot_password_view(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        user = User.objects.filter(email=email).first()
+
+        if user:
+            request.session["reset_user_id"] = user.id
+            return redirect("reset_password")
+        else:
+            messages.error(request, "No account found with that email.")
+            return redirect("forgot_password")
+
     return render(request, "forgot-password.html")
 
 
 def reset_password_view(request):
+    user_id = request.session.get("reset_user_id")
+
+    if not user_id:
+        messages.error(request, "Please verify your email first.")
+        return redirect("forgot_password")
+
+    user = User.objects.filter(id=user_id).first()
+    if not user:
+        messages.error(request, "Something went wrong. Please try again.")
+        return redirect("forgot_password")
+
+    if request.method == "POST":
+        password = request.POST.get("password")
+        confirm_password = request.POST.get("confirm_password")
+
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match.")
+            return render(request, "reset-password.html")
+
+        user.set_password(password)
+        user.save()
+
+        del request.session["reset_user_id"]
+
+        messages.success(request, "Your password has been reset successfully. Please log in.")
+        return redirect("login")
+
     return render(request, "reset-password.html")
 
 
@@ -376,3 +414,26 @@ Keep the answer clean and professional.
         "ai_result": ai_result,
         "total": total,
     })
+    
+@login_required
+def update_budget(request):
+    if request.method == 'POST':
+        # Grab income and budget limits from the form submission
+        income = request.POST.get('income', 0)
+        budget_amount = request.POST.get('budget_amount', 0)
+        category = request.POST.get('category', 'General') # Default or selected category
+       
+        # Look for an existing budget for the current user, or create a new one
+        budget, created = Budget.objects.get_or_create(
+            user=request.user,
+            category=category,
+            defaults={'income': income, 'budget_amount': budget_amount}
+        )
+       
+        # If it already existed, update the values
+        if not created:
+            budget.income = income
+            budget.budget_amount = budget_amount
+            budget.save()
+           
+        return redirect('dashboard')
