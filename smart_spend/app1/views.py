@@ -592,7 +592,7 @@ Keep the answer clean and professional.
     ai_result = ""
 
     try:
-        genai.configure(api_key=settings.GEMINI_API_KEY)
+        genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
         model = genai.GenerativeModel("gemini-2.5-flash")
 
