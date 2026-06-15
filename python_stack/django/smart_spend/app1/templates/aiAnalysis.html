@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Analysis | SmartSpend X</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#07111f] text-white min-h-screen">
+
+    <section class="max-w-5xl mx-auto px-6 py-16">
+
+        <a href="{% url 'dashboard' %}" class="text-[#1D9E75] hover:underline">
+            ← Back to Dashboard
+        </a>
+
+        <div class="mt-8 bg-[#0d1726] border border-white/10 rounded-3xl p-8 shadow-2xl">
+
+            <h1 class="text-4xl font-bold mb-3">
+                AI Financial Analysis
+            </h1>
+
+            <p class="text-gray-400 mb-8">
+                Smart AI insights based on your real expenses data.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-5 mb-8">
+                <div class="bg-[#141b26] rounded-2xl p-6 border border-white/10">
+                    <p class="text-gray-400 text-sm">Total Spending</p>
+                    <h2 class="text-3xl font-bold mt-2">{{ total }}</h2>
+                </div>
+
+                <div class="bg-[#141b26] rounded-2xl p-6 border border-white/10">
+                    <p class="text-gray-400 text-sm">AI Status</p>
+                    <h2 class="text-xl font-semibold mt-2 text-[#1D9E75]">
+                        Analysis Ready
+                    </h2>
+                </div>
+            </div>
+
+            <div class="bg-[#141b26] border border-white/10 rounded-2xl p-6">
+                <h2 class="text-2xl font-bold mb-4">
+                    Smart Recommendation
+                </h2>
+
+                {% if ai_result %}
+                    <div class="whitespace-pre-line text-gray-300 leading-8">
+                        {{ ai_result }}
+                    </div>
+                {% else %}
+                    <p class="text-gray-400">
+                        No analysis available yet. Add expenses first.
+                    </p>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+</html>
