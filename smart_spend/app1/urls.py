@@ -25,4 +25,5 @@ urlpatterns = [
     path("profile/", views.profile_view, name="profile"),
     path("settings/", views.settings_view, name="settings"),
     path("about-us/", views.about_us_view, name="about_us"),
+    path('budget/update/', views.update_budget, name='update_budget'),
 ]

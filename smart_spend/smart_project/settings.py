@@ -87,6 +87,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'smart_project.wsgi.application'
 
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases

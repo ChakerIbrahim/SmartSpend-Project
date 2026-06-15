@@ -8,6 +8,9 @@ from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from .models import Expense, BillReminder, Budget, UserProfile, SupportMessage
 
+from django.http import JsonResponse
+import json
+
 import os
 import random
 import datetime
@@ -126,6 +129,52 @@ def register_view(request):
     return render(request, "register.html")
 
 
+def forgot_password_view(request):
+    if request.method == "POST":
+        email = request.POST.get("email")
+        user = User.objects.filter(email=email).first()
+
+        if user:
+            request.session["reset_user_id"] = user.id
+            return redirect("reset_password")
+        else:
+            messages.error(request, "No account found with that email.")
+            return redirect("forgot_password")
+
+    return render(request, "forgot-password.html")
+
+
+def reset_password_view(request):
+    user_id = request.session.get("reset_user_id")
+
+    if not user_id:
+        messages.error(request, "Please verify your email first.")
+        return redirect("forgot_password")
+
+    user = User.objects.filter(id=user_id).first()
+    if not user:
+        messages.error(request, "Something went wrong. Please try again.")
+        return redirect("forgot_password")
+
+    if request.method == "POST":
+        password = request.POST.get("password")
+        confirm_password = request.POST.get("confirm_password")
+
+        if password != confirm_password:
+            messages.error(request, "Passwords do not match.")
+            return render(request, "reset-password.html")
+
+        user.set_password(password)
+        user.save()
+
+        del request.session["reset_user_id"]
+
+        messages.success(request, "Your password has been reset successfully. Please log in.")
+        return redirect("login")
+
+    return render(request, "reset-password.html")
+
+
 def verify_email_view(request):
     if request.method == "POST":
         entered_code = request.POST.get("code")
@@ -172,18 +221,8 @@ def verify_email_view(request):
 
     return render(request, "verify-email.html")
 
-
-def forgot_password_view(request):
-    return render(request, "forgot-password.html")
-
-
-def reset_password_view(request):
-    return render(request, "reset-password.html")
-
-
 def success_view(request):
     return render(request, "success.html")
-
 
 # ---------------------------------------------------------------------------
 # Dashboard
@@ -220,9 +259,48 @@ def dashboard(request):
 # Expenses
 # ---------------------------------------------------------------------------
 
+# @login_required
+# def expenses_view(request):
+#     if request.method == "POST":
+#         Expense.objects.create(
+#             user=request.user,
+#             title=request.POST.get("title"),
+#             amount=request.POST.get("amount"),
+#             category=request.POST.get("category"),
+#             date=request.POST.get("date"),
+#         )
+#         return redirect("expenses")
+
+#     expenses = Expense.objects.filter(user=request.user).order_by("-date")
+#     return render(request, "expenses.html", {
+#         "expenses": expenses,
+#         "currency": get_currency_symbol(request.user),
+#     })
+
 @login_required
 def expenses_view(request):
     if request.method == "POST":
+        # AJAX request
+        if request.content_type == 'application/json':
+            data = json.loads(request.body)
+            expense = Expense.objects.create(
+                user=request.user,
+                title=data.get("title"),
+                amount=data.get("amount"),
+                category=data.get("category"),
+                date=data.get("date"),
+            )
+            return JsonResponse({
+                'success': True,
+                'expense': {
+                    'id': expense.id,
+                    'title': expense.title,
+                    'amount': str(expense.amount),
+                    'category': expense.category,
+                    'date': str(expense.date),
+                }
+            })
+        # Normal form submit fallback
         Expense.objects.create(
             user=request.user,
             title=request.POST.get("title"),
@@ -277,8 +355,10 @@ def edit_expense_view(request, expense_id):
 def delete_expense(request, expense_id):
     expense = get_object_or_404(Expense, id=expense_id, user=request.user)
     expense.delete()
+    # AJAX request
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return JsonResponse({'success': True})
     return redirect("expenses")
-
 
 # ---------------------------------------------------------------------------
 # Bill Reminders
@@ -363,6 +443,28 @@ def budget_planning_view(request):
         "currency": get_currency_symbol(request.user),
     })
 
+@login_required
+def update_budget(request):
+    if request.method == 'POST':
+        # Grab income and budget limits from the form submission
+        income = request.POST.get('income', 0)
+        budget_amount = request.POST.get('budget_amount', 0)
+        category = request.POST.get('category', 'General') # Default or selected category
+       
+        # Look for an existing budget for the current user, or create a new one
+        budget, created = Budget.objects.get_or_create(
+            user=request.user,
+            category=category,
+            defaults={'income': income, 'budget_amount': budget_amount}
+        )
+       
+        # If it already existed, update the values
+        if not created:
+            budget.income = income
+            budget.budget_amount = budget_amount
+            budget.save()
+           
+        return redirect('dashboard')
 
 # ---------------------------------------------------------------------------
 # Profile
@@ -457,12 +559,15 @@ def about_us_view(request):
 
 @login_required
 def ai_analysis_view(request):
-    expenses = Expense.objects.filter(user=request.user)
-    total    = expenses.aggregate(total=Sum("amount"))["total"] or 0
 
-    expenses_text = "\n".join(
-        f"{e.category} - {e.amount} - {e.date}" for e in expenses
-    )
+    expenses = Expense.objects.filter(user=request.user)
+
+    total = expenses.aggregate(total=Sum("amount"))["total"] or 0
+
+    expenses_text = "\n".join([
+        f"{e.category} - {e.amount} - {e.date}"
+        for e in expenses
+    ])
 
     prompt = f"""
 You are a professional AI financial advisor.
@@ -484,14 +589,21 @@ Give:
 Keep the answer clean and professional.
 """
 
+    ai_result = ""
+
     try:
-        model     = genai.GenerativeModel("gemini-2.5-flash")
-        response  = model.generate_content(prompt)
+        genai.configure(api_key=settings.GEMINI_API_KEY)
+
+        model = genai.GenerativeModel("gemini-2.5-flash")
+
+        response = model.generate_content(prompt)
+
         ai_result = response.text
+
     except Exception as e:
         ai_result = str(e)
 
     return render(request, "aiAnalysis.html", {
         "ai_result": ai_result,
-        "total":     total,
+        "total": total,
     })

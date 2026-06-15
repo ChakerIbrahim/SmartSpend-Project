@@ -93,14 +93,10 @@
   <div class="mt-10 flex justify-center gap-4 flex-wrap">
 
     <a href="{% url 'register' %}"
-       class="rounded-full bg-cyan-300 text-black px-8 py-4 font-bold hover:bg-white transition">
+       class="rounded-full bg-cyan-300 text-black px-8 py-4 w-[400px] text-[24px] font-bold hover:bg-white transition">
       Get Started
     </a>
 
-    <a href="#dashboard"
-       class="rounded-full border border-white/10 bg-white/5 px-8 py-4 font-bold hover:bg-white hover:text-black transition">
-      View Preview
-    </a>
 
   </div>
 
@@ -229,7 +225,7 @@
       <h3 class="text-3xl font-black leading-tight">
         Use smart budgets
       </h3>
-
+      
       <p class="mt-6 text-slate-400 leading-9 text-lg">
         Set financial goals and stay within budget using real-time spending insights.
       </p>
@@ -240,6 +236,50 @@
 
 </section>
 
+    <section class="contact-section bg-[#020822] px-[60px] py-20" id="contact">
+        <div class="contact-inner max-w-[700px] mx-auto">
+            <h2 class="section-title white text-[28px] font-bold text-white mb-2 text-center">Get in touch with us</h2>
+            <div class="contact-emails grid grid-cols-1 sm:grid-cols-3 gap-5 my-10">
+                <div class="contact-email-item bg-[#141b26] border border-[#1e2d40] p-4 text-center rounded-[10px]">
+                    <p class="contact-email-label text-[11px] text-[#b8d5d9] uppercase tracking-[0.06em] mb-1.5">General support</p>
+                    <a href="mailto:hello@smartspend.com" class="contact-email-link text-xs text-brandGreen no-underline">hello@smartspend.com</a>
+                </div>
+                <div class="contact-email-item bg-[#141b26] border border-[#1e2d40] p-4 text-center rounded-[10px]">
+                    <p class="contact-email-label text-[11px] text-[#b8d5d9] uppercase tracking-[0.06em] mb-1.5">Business & partnerships</p>
+                    <a href="mailto:business@smartspend.com" class="contact-email-link text-xs text-brandGreen no-underline">business@smartspend.com</a>
+                </div>
+                <div class="contact-email-item bg-[#141b26] border border-[#1e2d40] p-4 text-center rounded-[10px]">
+                    <p class="contact-email-label text-[11px] text-[#b8d5d9] uppercase tracking-[0.06em] mb-1.5">Media & press</p>
+                    <a href="mailto:media@smartspend.com" class="contact-email-link text-xs text-brandGreen no-underline">media@smartspend.com</a>
+                </div>
+            </div>
+
+        <form method="POST" class="flex flex-col gap-3">
+
+            {% csrf_token %}
+
+            <input type="text"
+                   placeholder="Your name"
+                   class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg">
+
+            <input type="email"
+                   placeholder="Email address"
+                   class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg">
+
+            <textarea rows="4"
+                      placeholder="Your message"
+                      class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg"></textarea>
+
+            <button type="submit"
+                    class="bg-[#1D9E75] hover:bg-[#178a65] text-white px-7 py-3 rounded-lg transition-colors">
+                Send message
+            </button>
+
+        </form>
+
+
+        </div>
+    </section>
 <footer id="footer" class="border-t border-white/10 py-7 text-center text-slate-500">
   © 2026 SmartSpend X — Built by Jalil Wasaya
 </footer>
