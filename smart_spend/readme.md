@@ -184,11 +184,12 @@ http://127.0.0.1:8000
 
 ## 📸 Screenshots
 
-![Dashboard](smart_spend/screenshots/dashboard.png)
+![Dashboard](https://github.com/ChakerIbrahim/SmartSpend-Project/blob/chaker-feature/smart_spend/smart_project/screenshots/dashboard.png?raw=true)
 
-![Expenses](smart_spend/screenshots/expenses.png)
+![Expenses](https://github.com/ChakerIbrahim/SmartSpend-Project/blob/chaker-feature/smart_spend/smart_project/screenshots/expenses.png?raw=true)
 
-![Reminders](smart_spend/screenshots/reminders.png)
+![Reminders](https://github.com/ChakerIbrahim/SmartSpend-Project/blob/chaker-feature/smart_spend/smart_project/screenshots/reminders.png?raw=true)
+
 ---
 
 ## 👥 Team Members
