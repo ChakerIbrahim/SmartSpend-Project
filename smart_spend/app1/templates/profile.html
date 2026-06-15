@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Smart Spend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: "Noto Serif", serif; box-sizing: border-box; }
+        body { background-color: #182130; }
+    </style>
+</head>
+<body class="text-[#b8d5d9] min-h-screen flex flex-col justify-between py-10 px-4 md:px-16">
+
+    <main class="max-w-7xl mx-auto w-full flex-1 flex flex-col">
+        <section class="w-full bg-[#0d1018] p-6 md:p-10 rounded-2xl border border-[#1e2d40] shadow-xl flex-1 flex flex-col justify-between">
+
+            <div>
+                <div class="flex justify-between items-center border-b border-[#1e2d40] pb-4 mb-8">
+                    <h2 class="text-3xl font-bold text-white">Profile</h2>
+                    <a href="{% url 'dashboard' %}"
+                       class="rounded-[20px] px-6 py-3 text-white bg-[#443e45] border-2 border-[#b3b2b6] text-[18px] hover:bg-[#575058] transition-colors">
+                        ← Back
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+
+                    <div class="flex flex-col gap-6">
+
+                        <!-- User Info -->
+                        <div class="bg-[#141b26] border border-[#1e2d40] rounded-[10px] px-6 py-5 flex items-center gap-4">
+                            <div class="w-14 h-14 bg-[#1D9E75] rounded-full flex items-center justify-center text-white text-xl font-bold">
+                                {{ request.user.username|first|upper }}
+                            </div>
+                            <div>
+                                <p class="text-white text-[17px] font-bold">
+                                    {{ request.user.username }}
+                                </p>
+                                <p class="text-[#b8d5d9] text-[13px]">{{ request.user.email }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Overview -->
+                        <div class="bg-[#141b26] border border-[#1e2d40] rounded-[10px] px-6 py-5 flex flex-col gap-4">
+                            <p class="text-[#b8d5d9] text-[11px] uppercase tracking-widest font-semibold">Overview</p>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="bg-[#182130] border border-[#1e2d40] rounded-lg p-4">
+                                    <p class="text-[#b8d5d9] text-[11px] uppercase tracking-wider mb-1">Total Spent</p>
+                                    <p class="text-white text-[20px] font-bold">{{ currency }}{{ total_expenses }}</p>
+                                </div>
+                                <div class="bg-[#182130] border border-[#1e2d40] rounded-lg p-4">
+                                    <p class="text-[#b8d5d9] text-[11px] uppercase tracking-wider mb-1">Member Since</p>
+                                    <p class="text-[#1D9E75] text-[14px] font-bold">
+                                        {{ request.user.date_joined|date:"M Y" }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Links -->
+                        <div class="bg-[#141b26] border border-[#1e2d40] rounded-[10px] px-6 py-5">
+                            <p class="text-[#b8d5d9] text-[11px] uppercase tracking-widest mb-4 font-semibold">Quick Links</p>
+
+                            <a href="{% url 'settings' %}"
+                               class="flex items-center gap-3 py-3 border-b border-[#1e2d40] hover:text-white transition-colors">
+                                <span>⚙</span>
+                                <p class="flex-1 text-[14px]">Settings</p>
+                                <span>›</span>
+                            </a>
+                            <a href="{% url 'about_us' %}"
+                               class="flex items-center gap-3 py-3 border-b border-[#1e2d40] hover:text-white transition-colors">
+                                <span>✉</span>
+                                <p class="flex-1 text-[14px]">Contact Us</p>
+                                <span>›</span>
+                            </a>
+                            <a href="{% url 'expenses' %}"
+                               class="flex items-center gap-3 py-3 hover:text-white transition-colors">
+                                <span>📄</span>
+                                <p class="flex-1 text-[14px]">My Expenses</p>
+                                <span>›</span>
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Recent Expenses from DB -->
+                    <div class="bg-[#141b26] border border-[#1e2d40] rounded-[10px] px-6 py-5 flex flex-col gap-4">
+                        <p class="text-[#b8d5d9] text-[11px] uppercase tracking-widest font-semibold mb-1">
+                            Recent Expenses
+                        </p>
+
+                        {% for expense in expenses %}
+                        <div class="bg-[#182130] border border-[#1e2d40] rounded-lg p-4 flex justify-between items-center">
+                            <div>
+                                <p class="text-white text-[14px] font-medium">{{ expense.title }}</p>
+                                <p class="text-[#b8d5d9] text-[12px] opacity-60">
+                                    {{ expense.category }} • {{ expense.date }}
+                                </p>
+                            </div>
+                            <p class="text-[#e57373] text-[14px] font-semibold">- {{ currency }}{{ expense.amount }}</p>
+                        </div>
+                        {% empty %}
+                        <div class="text-center py-10">
+                            <p class="text-white font-semibold">No expenses yet</p>
+                            <p class="text-[#b8d5d9] text-sm mt-1">Start tracking your spending!</p>
+                            <a href="{% url 'expenses' %}"
+                               class="inline-block mt-4 px-6 py-2 rounded-xl bg-[#1D9E75] text-white font-bold hover:bg-[#178a65] transition">
+                                Add Expense
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+
+            <footer class="border-t border-white/10 pt-6 mt-12 text-center text-slate-500 text-sm">
+                © 2026 SmartSpend X — Built by Jalil Wasaya
+            </footer>
+
+        </section>
+    </main>
+
+</body>
+</html>
