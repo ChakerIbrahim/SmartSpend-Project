@@ -1,0 +1,14 @@
+# Ignore virtual environments
+venv/
+env/
+djangoPy3Env/
+
+# Ignore local environment variables / secrets
+.env
+
+# Ignore OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore database files (if you want to keep your local DB private)
+*.sqlite3
