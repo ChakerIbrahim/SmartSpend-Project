@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
+import environ
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -61,7 +61,11 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 
-
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+ 
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 ROOT_URLCONF = 'smart_project.urls'
 
@@ -142,3 +146,13 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 SOCIALACCOUNT_QUERY_PARAMETERS = {'access_type': 'online'}
 LOGIN_URL = '/login/'
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+SENDGRID_API_KEY = env("SENDGRID_API_KEY", default="")
+SENDGRID_SANDBOX_MODE_IN_DEBUG = False
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="example@example.com")
+DEBUG = env(
+    "DEBUG",
+    default=True
+)
