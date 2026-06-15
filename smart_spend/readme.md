@@ -184,15 +184,11 @@ http://127.0.0.1:8000
 
 ## 📸 Screenshots
 
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](smart_spend/screenshots/dashboard.png)
 
-### Expense Management
-![Expenses](screenshots/expenses.png)
+![Expenses](smart_spend/screenshots/expenses.png)
 
-
-### Bill Reminders
-![Reminders](screenshots/reminders.png)
+![Reminders](smart_spend/screenshots/reminders.png)
 ---
 
 ## 👥 Team Members
