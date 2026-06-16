@@ -147,7 +147,6 @@ ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 SOCIALACCOUNT_QUERY_PARAMETERS = {'access_type': 'online'}
 LOGIN_URL = '/login/'
-EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 SENDGRID_API_KEY = env("SENDGRID_API_KEY", default="")
 SENDGRID_SANDBOX_MODE_IN_DEBUG = False
 MEDIA_URL = "/media/"
@@ -157,3 +156,10 @@ DEBUG = env(
     "DEBUG",
     default=True
 )
+# EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'awssleebi181@gmail.com'
+EMAIL_HOST_PASSWORD = 'yrys szck aicb pqkf'
