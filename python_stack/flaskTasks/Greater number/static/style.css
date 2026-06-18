@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-top: 80px;
+}
+
+input {
+    padding: 10px;
+    width: 180px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.box {
+    width: 300px;
+    margin: 20px auto;
+    padding: 30px;
+    color: white;
+    border-radius: 10px;
+}
+
+.high,
+.low,
+.lose {
+    background-color: red;
+}
+
+.correct {
+    background-color: green;
+}

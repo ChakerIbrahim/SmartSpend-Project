@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meter & Progress</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>System Performance Monitor</h1>
+
+    <section class="card-grid">
+      <div class="card">
+        <h2>🔥 CPU Usage</h2>
+        <label for="cpu-meter">CPU usage level</label>
+        <meter id="cpu-meter" min="0" max="100" value="65"></meter>
+        <p class="info-text">65% usage</p>
+      </div>
+
+      <div class="card">
+        <h2>🖥️ RAM Usage</h2>
+        <label for="ram-meter">RAM usage level</label>
+        <meter id="ram-meter" min="0" max="16" value="6"></meter>
+        <p class="info-text">6 GB of 16 GB used</p>
+      </div>
+
+      <div class="card">
+        <h2>🙂 Disk Usage</h2>
+        <label for="disk-meter">Disk usage level</label>
+        <meter id="disk-meter" min="0" max="512" value="420"></meter>
+        <p class="info-text">420 GB of 512 GB used</p>
+      </div>
+
+      <div class="card">
+        <h2>📁 File Transfer</h2>
+        <label for="file-progress">File transfer progress</label>
+        <progress id="file-progress" value="70" max="100"></progress>
+        <p class="info-text">70% completed</p>
+      </div>
+
+      <div class="card">
+        <h2>🌐 Network Activity</h2>
+        <label for="network-progress">Network activity progress</label>
+        <progress id="network-progress" value="30" max="100"></progress>
+        <p class="info-text">Current load: 30%</p>
+      </div>
+
+      <div class="card">
+        <h2>⚡ System Tasks</h2>
+        <label for="task-progress">System task progress</label>
+        <progress id="task-progress" value="45" max="100"></progress>
+        <p class="info-text">Processing tasks: 45%</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dojo Fruit Store Check Out</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="checkout">
+
+    <h1>Thank you for your order!</h1>
+
+    <p>
+        We ordered {{ count }} items for you and charged your student account
+        on {{ time }}.
+    </p>
+
+    <h3>You've ordered</h3>
+
+    <table>
+        <tr>
+            <th>Fruit Name</th>
+            <th>Quantity</th>
+        </tr>
+
+        <tr>
+            <td>Strawberry</td>
+            <td>{{ strawberry }}</td>
+        </tr>
+
+        <tr>
+            <td>Raspberry</td>
+            <td>{{ raspberry }}</td>
+        </tr>
+
+        <tr>
+            <td>Blackberry</td>
+            <td>{{ blackberry }}</td>
+        </tr>
+    </table>
+
+    <h3>Your Information</h3>
+
+    <p><strong>Name:</strong> {{ name }}</p>
+    <p><strong>Your Student ID:</strong> {{ student_id }}</p>
+
+</div>
+
+</body>
+</html>

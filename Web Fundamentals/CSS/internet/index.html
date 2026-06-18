@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Internet - Web Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #e9e9e9;
+      color: #222;
+    }
+
+    .page {
+      width: 960px;
+      margin: 20px auto;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+
+    .top-header {
+      padding: 18px 24px 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .globe {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, #c8f0ff 10%, #4f94c9 45%, #1b4b7e 100%);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.45);
+      position: relative;
+      flex: 0 0 42px;
+    }
+
+    .globe::before,
+    .globe::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,0.35);
+      border-radius: 999px;
+    }
+
+    .globe::before {
+      width: 26px;
+      height: 2px;
+      left: 8px;
+      top: 13px;
+    }
+
+    .globe::after {
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.35);
+      background: transparent;
+      left: 10px;
+      top: 10px;
+      border-radius: 50%;
+    }
+
+    .site-title {
+      font-size: 34px;
+      line-height: 1;
+      color: #4a4a4a;
+      font-weight: 500;
+    }
+
+    .blue-bar {
+      background: linear-gradient(#3f87c3, #2366a2);
+      color: white;
+      padding: 8px 22px;
+      font-size: 22px;
+      font-weight: 300;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .sidebar {
+      padding-right: 12px;
+      border-right: 1px solid #ddd;
+    }
+
+    .sidebar h3 {
+      font-size: 14px;
+      margin: 0 0 10px;
+      color: #111;
+    }
+
+    .sidebar p {
+      margin: 0 0 14px;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .sidebar .accent {
+      color: #d43127;
+      font-weight: 700;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+      padding: 11px 14px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+      font-size: 14px;
+    }
+
+    .btn-blue {
+      background: linear-gradient(#4a97db, #1c69b0);
+    }
+
+    .btn-orange {
+      background: linear-gradient(#ffb03f, #eb7f00);
+    }
+
+    .ad {
+      margin-top: 28px;
+      min-height: 280px;
+      background: linear-gradient(180deg, #0f213f, #0f7dc4);
+      color: white;
+      padding: 18px 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ad h4 {
+      margin: 0;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+
+    .ad .ad-btn {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 18px;
+      text-align: center;
+      background: linear-gradient(#4fd3ff, #17a7dc);
+      border-radius: 6px;
+      padding: 9px 10px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .main-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .crumb {
+      color: #2a71b7;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .small-home {
+      font-size: 14px;
+      color: #999;
+      margin-right: 6px;
+    }
+
+    .phone {
+      text-align: right;
+      color: #1d9cdd;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .phone .number {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .phone .hours,
+    .phone .intl {
+      color: #999;
+      font-weight: 400;
+      font-size: 11px;
+    }
+
+    .section-title {
+      color: #2e74b7;
+      font-size: 32px;
+      margin: 8px 0 6px;
+      font-weight: 700;
+    }
+
+    .main p,
+    .main li {
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .main ul {
+      margin-top: 8px;
+      padding-left: 22px;
+    }
+
+    .link {
+      color: #1796dd;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .network {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin: 18px 0;
+    }
+
+    .circle {
+      width: 110px;
+      height: 110px;
+      border: 5px solid #111;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background: #fff;
+      position: relative;
+    }
+
+    .arrow-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+      font-size: 15px;
+      color: #444;
+    }
+
+    .arrow {
+      position: relative;
+      width: 90px;
+      height: 2px;
+      background: #111;
+    }
+
+    .arrow::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -4px;
+      border-left: 10px solid #111;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+    }
+
+    .arrow.left::after {
+      left: -1px;
+      right: auto;
+      border-left: none;
+      border-right: 10px solid #111;
+    }
+
+    .sub-title {
+      color: #2e74b7;
+      font-size: 26px;
+      font-weight: 700;
+      margin: 12px 0 10px;
+    }
+
+    ol {
+      padding-left: 22px;
+    }
+
+    .big3 {
+      margin-top: 20px;
+      border: 4px solid #2191e0;
+      padding: 14px 16px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      width: 110px;
+      justify-content: center;
+      padding-top: 4px;
+    }
+
+    .badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      text-align: center;
+      font-weight: 700;
+      line-height: 1.05;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.35);
+    }
+
+    .html { background: #f07f2f; }
+    .css { background: #2cb6df; }
+    .js { background: #f5b223; }
+
+    .big3 h4 {
+      margin: 0 0 8px;
+      color: #2e74b7;
+      font-size: 18px;
+    }
+
+    .muted {
+      color: #666;
+    }
+
+    @media (max-width: 980px) {
+      .page {
+        width: min(960px, calc(100% - 24px));
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid #ddd;
+        padding-right: 0;
+        padding-bottom: 18px;
+      }
+
+      .main-top {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="top-header">
+        <div class="globe"></div>
+        <div class="site-title">The Internet</div>
+      </div>
+      <div class="blue-bar">The World Wide Web</div>
+    </header>
+
+    <div class="content">
+      <aside class="sidebar">
+        <h3>So, what's an <span class="accent">Internet?</span></h3>
+        <p><strong>An Interconnected Network</strong> of computers all around the world!</p>
+
+        <a href="#" class="btn btn-blue">WATCH A VIDEO</a>
+        <a href="#" class="btn btn-orange">MORE RESOURCES</a>
+
+        <div class="ad">
+          <h4>Reinvent your career in just 14 weeks</h4>
+          <div class="ad-btn">Learn More &gt;&gt;&gt;</div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="main-top">
+          <div class="crumb"><span class="small-home">🏠</span>DNS</div>
+          <div class="phone">
+            <div class="hours">Mon - Fri 9 a.m. - 5 p.m. (EST)</div>
+            <div class="number">855.967.3787</div>
+            <div class="intl">International +1.617.963.0555</div>
+          </div>
+        </div>
+
+        <div class="section-title">Clients and Servers</div>
+        <p>Computers connected to the <a class="link" href="#">Web</a> are called clients and servers.</p>
+
+        <ul>
+          <li><a class="link" href="#">Clients</a> are the typical Web user's Internet-connected devices and <a class="link" href="#">Web-accessing software</a> available on those devices.</li>
+          <li><a class="link" href="#">Servers</a> are computers that store <a class="link" href="#">webpages</a>, <a class="link" href="#">sites</a>, or <a class="link" href="#">apps</a>.</li>
+        </ul>
+
+        <div class="network">
+          <div class="circle">SERVER</div>
+          <div class="arrow-stack">
+            <div>requests</div>
+            <div class="arrow"></div>
+            <div class="arrow left"></div>
+            <div>responses</div>
+          </div>
+          <div class="circle">CLIENT</div>
+        </div>
+
+        <div class="sub-title">So What Actually Happens?</div>
+        <ol>
+          <li>The browser goes to the <a class="link" href="#">DNS server</a> and finds the real address of the <a class="link" href="#">server</a> that the website lives on.</li>
+          <li>The browser sends an <a class="link" href="#">HTTP request</a> message to the server asking it to send a copy of the website to the client.</li>
+          <li>If the server approves the client's request, the server sends the client a <a class="link" href="#">200 OK</a> message, then starts sending the website's files in small chunks.</li>
+          <li>The browser assembles the small chunks into a complete website and displays it to you.</li>
+        </ol>
+
+        <section class="big3">
+          <div class="badges">
+            <div class="badge html">HTML</div>
+            <div class="badge css">CSS</div>
+            <div class="badge js">JavaScript</div>
+          </div>
+          <div>
+            <h4>The Big 3 - HTML, CSS, JavaScript</h4>
+            <p>While the server can process information in many different languages, the files that they serve to the client are always going to be some combination of HTML, CSS, and JavaScript!</p>
+            <p>Learn more about the Big 3 <a class="link" href="#">here</a>!</p>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

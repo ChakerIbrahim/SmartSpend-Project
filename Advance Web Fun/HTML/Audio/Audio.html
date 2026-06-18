@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="photo/music-solid.png" type="image/logo">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <section class="panel player-panel">
+            <div class="cover">
+                <img src="photo/itunes-brands-solid.png" id="imageWidth" alt="music logo" >
+            </div>
+
+            <div class="now-playing">
+                <span class="label">Now Playing</span>
+                <h1 id="track-title">Evening-Improvisation</h1>
+                <p class="artist" id="track-artist">Ethera</p>
+            </div>
+
+
+            <audio id="audio-player" controls>
+                <source src="Evening-Improvisation-with-Ethera(chosic.com).mp3" type="audio/mp3">
+            </audio>
+        </section>
+
+        <aside class="panel playlist-panel">
+            <h2 class="playlist-title">Playlist</h2>
+
+            <ul class="playlist" id="playlist">
+
+                <li class="track active"
+                    onclick="playSong('Evening-Improvisation','Ethera','Evening-Improvisation-with-Ethera(chosic.com).mp3', this)">
+                    <div class="track-text">
+                        <strong>Evening-Improvisation</strong>
+                        <span>Ethera</span>
+                    </div>
+                    <span class="duration">2:49</span>
+                </li>
+
+                <li class="track active"
+                    onclick="playSong('Investigations','Kevin MacLeod','Kevin-MacLeod-Investigations(chosic.com).mp3',this)">
+                    <div class="track-text">
+                        <strong>Investigations</strong>
+                        <span>Kevin MacLeod</span>
+                    </div>
+                    <span class="duration">1:33</span>
+                </li>
+
+                <li class="track active"
+                    onclick="playSong('Melody','Luke Bergs','Luke-Bergs-Waesto-Melody-chosic.com_.mp3' ,this)">
+                    <div class="track-text">
+                        <strong>Melody</strong>
+                        <span>Luke Bergs</span>
+                    </div>
+                    <span class="duration">2:46</span>
+                </li>
+        </aside>
+    </main>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

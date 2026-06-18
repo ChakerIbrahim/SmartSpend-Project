@@ -1,0 +1,21 @@
+/* Center all text in the page */
+body {
+text-align: center;
+font-family: Arial;
+}
+/* Style for result message box */
+.box {
+width: 300px;
+margin: 20px auto;
+padding: 30px;
+color: white;
+font-size: 25px;
+}
+/* Green background when user wins */
+.green {
+background-color: green;
+}
+/* Red background for wrong guesses */
+.red {
+background-color: red;
+}

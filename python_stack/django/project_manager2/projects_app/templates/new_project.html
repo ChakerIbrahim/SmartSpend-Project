@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Project</title>
+</head>
+<body>
+
+<h1>Create New Project</h1>
+
+<a href="/dashboard/">Dashboard</a>
+<br>
+<a href="/logout/">Logout</a>
+
+{% for message in messages %}
+    <p style="color:red;">{{ message }}</p>
+{% endfor %}
+
+<form action="/projects/create/" method="POST">
+    {% csrf_token %}
+
+    <p>Title</p>
+    <input type="text" name="title">
+
+    <p>Description</p>
+    <textarea name="description"></textarea>
+
+    <p>End Date</p>
+    <input type="date" name="end_date">
+
+    <br><br>
+    <button>Create</button>
+</form>
+
+</body>
+</html>

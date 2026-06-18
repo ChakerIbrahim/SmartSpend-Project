@@ -1,0 +1,177 @@
+body {
+    font-family: sans-serif;
+
+}
+
+.navbar {
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.nav-link.active {
+    font-weight: bold;
+}
+
+.btn {
+    background: cornflowerblue;
+    color: white;
+    padding: 10px;
+}
+
+.container {
+    width: 900px;
+    margin: 30px auto;
+}
+
+.columns {
+    display: flex;
+    gap: 25px;
+
+}
+
+.left {
+     flex: 1.8;
+}
+
+.right {
+    flex: 1.2;
+}
+
+.card {
+    background: white;
+    border: 4px solid pink;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.card-header {
+    height: 90px;
+    background: #17a2b8;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 2px solid rgb(14, 12, 12);
+     position: absolute;
+    top: 40px;
+    left: 20px;
+}
+
+.avatar img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+
+.card-body {
+    padding: 50px 20px 20px;
+}
+
+
+
+.map-marker {
+    width: 3%;
+    margin-right: 8px;
+}
+
+.location {
+    font-weight: 700;
+}
+
+
+.edit {
+    color: purple;
+    font-weight: bold;
+    
+}
+
+
+.box {
+    border: 4px solid pink;
+    margin-bottom: 20px;
+}
+
+.box-title {
+    background:black;
+    color: white;
+    padding: 15px;
+    font-weight: 700; 
+    
+}
+
+
+.bold{
+    font-weight:600 ;
+}
+
+.list {
+    padding:15px 12px 30px;
+}
+
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+    
+
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.mini-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid black;
+
+}
+
+
+.icon-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #8b8686;
+    font-weight: bold;
+    border-radius: 50%;
+    color:white;
+    font-size: 20px;
+}
+
+.view-more {
+    padding: 15px;
+    border-top: 2px solid pink;
+}
+
+.badge {
+    border-radius: 50%;
+    background-color: #bbb;
+    color: black;
+    padding: 4px 8px;
+    font-size: 12px; 
+
+}

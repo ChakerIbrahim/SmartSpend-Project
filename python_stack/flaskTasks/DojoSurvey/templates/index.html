@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Dojo Survey</title>
+</head>
+
+<body class="bg-gray-200 flex justify-center items-center h-screen">
+
+  <form class="border-4 border-black bg-gray-100 p-6 w-[500px]" method="POST" action="/result">
+
+    <!-- Name -->
+    <div class="flex items-center mb-4">
+      <label for="name" class="w-40 font-semibold">
+        Your Name:
+      </label>
+
+      <input
+        type="text"
+        id="name"
+        name="name"
+        class="border-2 border-black w-full h-10 px-2"
+      >
+    </div>
+
+    <!-- Location -->
+    <div class="flex items-center mb-4">
+      <label for="location" class="w-40 font-semibold">
+        Dojo Location:
+      </label>
+
+      <select
+        id="location"
+        name="location"
+        class="border-2 border-black w-full h-10 px-2"
+      >
+        <option>San Jose</option>
+        <option>Ramallah</option>
+        <option>Tokyo</option>
+      </select>
+    </div>
+
+    <!-- Language -->
+    <div class="flex items-center mb-4">
+      <label for="language" class="w-40 font-semibold">
+        Favorite Language:
+      </label>
+
+      <select
+        id="language"
+        name="language"
+        class="border-2 border-black w-full h-10 px-2"
+      >
+        <option>Python</option>
+        <option>JavaScript</option>
+        <option>Java</option>
+      </select>
+    </div>
+
+    <!-- Comment -->
+    <div class="mb-4">
+      <label for="comment" class="font-semibold block mb-2">
+        Comment (optional):
+      </label>
+
+      <textarea
+        id="comment"
+        name="comment"
+        class="border-2 border-black w-full h-32 p-2"
+      ></textarea>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="flex justify-end">
+      <button
+        type="submit"
+        class="bg-cyan-500 text-white border-2 border-black px-4 py-1 shadow-[3px_3px_0px_black]"
+      >
+        Submit
+      </button>
+    </div>
+
+  </form>
+
+</body>
+</html>

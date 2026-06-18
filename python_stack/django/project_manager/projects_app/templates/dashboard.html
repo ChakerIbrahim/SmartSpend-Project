@@ -1,0 +1,43 @@
+<h1>Welcome, {{ user.first_name }}</h1>
+
+<a href="/projects/new/">Create Project</a>
+<a href="/logout/">Logout</a>
+
+<hr>
+
+<h2>All Projects</h2>
+
+<table border="1">
+    <tr>
+        <th>Project</th>
+        <th>Created By</th>
+        <th>End Date</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for project in projects %}
+    <tr>
+        <td>
+            <a href="/projects/{{ project.id }}/">
+                {{ project.title }}
+            </a>
+        </td>
+
+        <td>{{ project.created_by.first_name }}</td>
+        <td>{{ project.end_date }}</td>
+
+        <td>
+            {% if project.created_by.id == user.id %}
+                <a href="/projects/{{ project.id }}/edit/">Edit</a>
+                <a href="/projects/{{ project.id }}/delete/">Delete</a>
+            {% else %}
+                {% if user in project.joined_users.all %}
+                    <a href="/projects/{{ project.id }}/leave/">Leave</a>
+                {% else %}
+                    <a href="/projects/{{ project.id }}/join/">Join</a>
+                {% endif %}
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>

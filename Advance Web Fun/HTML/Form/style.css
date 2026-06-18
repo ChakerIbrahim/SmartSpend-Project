@@ -1,0 +1,49 @@
+ body {
+      font-family: Arial;
+      background: #f2f2f2;
+    }
+
+    form {
+      width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, textarea {
+      width: 90%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+
+    fieldset {
+      margin-top: 15px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .submit {
+      background: green;
+      color: white;
+    }
+
+    .reset {
+      background: red;
+      color: white;
+    }

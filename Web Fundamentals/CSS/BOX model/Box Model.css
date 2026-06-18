@@ -1,0 +1,23 @@
+*{
+    padding: 4px;
+    margin: 4px;
+}
+.header1 {
+background-color: black;
+color: #00ffff;
+}
+.S1{
+    color: white;
+}
+.header2 {
+background-color: #663399;
+color: white;
+text-align: center;
+font-style: italic;
+}
+.header3{
+background-color: #9fc5f8;
+text-align: right;
+text-decoration: underline;
+font-family:sans-serif;
+ }

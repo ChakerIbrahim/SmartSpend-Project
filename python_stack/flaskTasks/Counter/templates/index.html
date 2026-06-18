@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background-color: #111827;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container{
+            width: 500px;
+            background-color: #1f2937;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        h1{
+            margin-bottom: 25px;
+            color: #facc15;
+            font-size: 40px;
+        }
+
+        h2{
+            margin: 15px 0;
+            background-color: #374151;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .buttons{
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        button{
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-btn{
+            background-color: #22c55e;
+            color: white;
+        }
+
+        .add-btn:hover{
+            background-color: #16a34a;
+        }
+
+        .reset-btn{
+            background-color: #eab308;
+            color: black;
+        }
+
+        .reset-btn:hover{
+            background-color: #ca8a04;
+        }
+
+        .destroy-btn{
+            background-color: #ef4444;
+            color: white;
+        }
+
+        .destroy-btn:hover{
+            background-color: #dc2626;
+        }
+
+        form{
+            margin-top: 30px;
+        }
+
+        input{
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .custom-btn{
+            width: 100%;
+            background-color: #3b82f6;
+            color: white;
+        }
+
+        .custom-btn:hover{
+            background-color: #2563eb;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Counter App</h1>
+
+        <h2>Page Visits: {{ session["visits"] }}</h2>
+
+        <h2>Counter: {{ session["counter"] }}</h2>
+
+        <div class="buttons">
+
+            <a href="/add_two">
+                <button class="add-btn">+2</button>
+            </a>
+
+            <a href="/reset">
+                <button class="reset-btn">Reset Counter</button>
+            </a>
+
+            <a href="/destroy_session">
+                <button class="destroy-btn">Destroy Session</button>
+            </a>
+
+        </div>
+
+        <form action="/increment" method="POST">
+
+            <input 
+                type="number" 
+                name="number" 
+                placeholder="Enter increment number"
+            >
+
+            <button class="custom-btn" type="submit">
+                Add Custom Number
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

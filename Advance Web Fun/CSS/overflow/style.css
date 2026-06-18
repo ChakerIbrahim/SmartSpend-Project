@@ -1,0 +1,29 @@
+ * {
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'Courier New', Courier, monospace;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+
+ }
+
+ .container {
+     width: 700px;
+     text-align: center;
+ }
+
+ .editor {
+     height: 320px;
+      background: black;
+      color: #dcdcdc;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: left;
+      overflow: auto;
+      line-height: 1.6;
+      white-space: pre;
+      
+ }

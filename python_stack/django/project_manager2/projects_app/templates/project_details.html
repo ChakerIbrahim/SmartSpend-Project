@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Details</title>
+</head>
+<body>
+
+<a href="/dashboard/">Dashboard</a>
+<br>
+<a href="/logout/">Logout</a>
+
+<h1>{{ project.title }}</h1>
+
+<p><strong>Description:</strong> {{ project.description }}</p>
+<p><strong>End Date:</strong> {{ project.end_date }}</p>
+<p><strong>Created By:</strong> {{ project.created_by.first_name }}</p>
+
+<hr>
+
+<h2>Users Joined</h2>
+
+<ul>
+    {% for joined_user in project.joined_users.all %}
+        <li>{{ joined_user.first_name }} {{ joined_user.last_name }}</li>
+    {% empty %}
+        <li>No users joined yet</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+{% if project.created_by.id == user.id %}
+    <a href="/projects/{{ project.id }}/edit/">Edit</a>
+    |
+    <a href="/projects/{{ project.id }}/delete/">Delete</a>
+{% else %}
+
+    {% if user in project.joined_users.all %}
+        <a href="/projects/{{ project.id }}/leave/">Leave Project</a>
+    {% else %}
+        <a href="/projects/{{ project.id }}/join/">Join Project</a>
+    {% endif %}
+
+{% endif %}
+
+</body>
+</html>

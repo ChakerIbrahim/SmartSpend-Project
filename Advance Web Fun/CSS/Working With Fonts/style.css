@@ -1,0 +1,33 @@
+h1{
+    font-family: myFirstFont;
+    font-style: italic;
+}
+
+.mystery-quest-regular {
+  font-family: "Mystery Quest", system-ui;
+  font-weight: 400;
+  font-size: 50px;
+}
+
+
+.font-effect-fire{
+    font-family:"Sofia", sans-serif ;
+    font-size: 50px;
+}
+
+.font-effect-neon{
+    font-family: "Sofia", sans-serif;
+    font-size: 50px;
+
+}
+
+@font-face {
+  font-family: myFirstFont;
+  src: url(sansation_light.woff);
+  font-style: italic;
+}
+
+
+.mono-text{
+    font-family: 'Courier New', Courier, monospace;
+}

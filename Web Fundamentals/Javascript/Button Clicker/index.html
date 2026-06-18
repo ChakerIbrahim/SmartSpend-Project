@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dojonary</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+
+</head>
+
+<body>
+  <header>
+    <div class="page">
+      <header class="topbar">
+        <h1 class="brand">Dojonary</h1>
+        <div class="search-wrap">
+          <input class="search" type="text" placeholder="Search" aria-label="Search" />
+        </div>
+        <button onclick="loginOut(this)" class="login-btn">Login</button>
+      </header>
+
+      <main class="content">
+        <section class="entries">
+          <article class="entry">
+            <div>
+              <h2 class="word">ninja</h2>
+              <p class="part-of-speech">noun</p>
+              <div class="plural">Plural: <span>ninjas</span></div>
+              <button class="like-btn" onclick="getAlert()">13 likes</button>
+            </div>
+            <p class="definition">
+              A practitioner skilled in the
+              <a href="#">Japanese</a>
+              art of
+              <a href="#">ninjutsu</a>
+            </p>
+          </article>
+
+          <article class="entry">
+            <div>
+              <h2 class="word">ninja</h2>
+              <p class="part-of-speech">noun</p>
+              <div class="plural">Plural: <span>ninjas</span></div>
+              <button class="like-btn" onclick="getAlert()">37 likes</button>
+            </div>
+            <p class="definition">
+              A <a href="#">programmer</a> who breaks down problems with <a href="#">zen</a>-like focus
+            </p>
+          </article>
+        </section>
+
+        <aside>
+          <div class="side-card">
+            <h2>Dojonary is defined by <strong>You</strong></h2>
+            <button class="action-btn" onclick="removeBtn(this)">Add Definition</button>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+</body>
+
+</html>

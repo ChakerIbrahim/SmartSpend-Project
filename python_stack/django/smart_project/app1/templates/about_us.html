@@ -1,0 +1,316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Smart Spend X</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="icon" href="{% static 'image/favicon.png' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#b8d5d9',
+                        brandGreen: '#1D9E75',
+                        brandGreenHover: '#178a65',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * {
+            font-family: "Noto Serif", serif;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body class="bg-[#182130] text-[#b8d5d9]">
+
+<nav class="flex items-center justify-between px-[60px] py-4 bg-[#0d1018] border-b border-[#1e2d40] sticky top-0 z-50">
+
+    <div class="flex items-center gap-2.5">
+
+        <img src="{% static 'images/smartspendx_icon_only.png' %}"
+             alt="Logo"
+             class="w-9 h-9 rounded-full object-cover">
+
+        <p class="text-base font-semibold text-white">
+            Smart Spend X
+        </p>
+
+    </div>
+
+    <div class="flex gap-8">
+
+        <a href="{% url 'dashboard' %}"
+           class="text-sm hover:text-[#1D9E75] transition-colors">
+            Dashboard
+        </a>
+
+        <a href="{% url 'profile' %}"
+           class="text-sm hover:text-[#1D9E75] transition-colors">
+            Profile
+        </a>
+
+        <a href="{% url 'settings' %}"
+           class="text-sm hover:text-[#1D9E75] transition-colors">
+            Settings
+        </a>
+
+    </div>
+
+</nav>
+
+<section class="bg-[#141b26] border-b border-[#1e2d40] px-[60px] py-[100px]">
+
+    <div class="max-w-[760px] mx-auto text-center">
+
+        <h1 class="text-[42px] font-bold text-white leading-[1.3] mb-5">
+            Smart Spend helps you take
+            <span class="text-[#1D9E75]">full control</span>
+            of your money.
+        </h1>
+
+        <p class="text-[17px] leading-[1.8]">
+            We believe managing your finances should be simple, beautiful, and stress-free.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="px-[60px] py-20">
+
+    <div class="max-w-[900px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[60px]">
+
+        <div>
+
+            <h2 class="text-2xl font-semibold text-white mb-3.5">
+                Why we built Smart Spend
+            </h2>
+
+            <p class="text-[15px] leading-[1.8]">
+                Most people overspend because they have no clear picture of where their money goes.
+            </p>
+
+        </div>
+
+        <div>
+
+            <h2 class="text-2xl font-semibold text-white mb-3.5">
+                Our mission
+            </h2>
+
+            <p class="text-[15px] leading-[1.8]">
+                To make financial clarity accessible to everyone.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="bg-[#208364] px-[60px] py-15">
+
+    <div class="max-w-[900px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-5 text-center">
+
+        <div>
+            <p class="text-3xl font-bold text-white mb-1.5">500+</p>
+            <p class="text-[13px] text-[#c8efe3] uppercase">Active users</p>
+        </div>
+
+        <div>
+            <p class="text-3xl font-bold text-white mb-1.5">12K+</p>
+            <p class="text-[13px] text-[#c8efe3] uppercase">Expenses logged</p>
+        </div>
+
+        <div>
+            <p class="text-3xl font-bold text-white mb-1.5">98%</p>
+            <p class="text-[13px] text-[#c8efe3] uppercase">Satisfaction rate</p>
+        </div>
+
+        <div>
+            <p class="text-3xl font-bold text-white mb-1.5">3</p>
+            <p class="text-[13px] text-[#c8efe3] uppercase">Currencies supported</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="px-[60px] py-20 bg-[#141b26] border-t border-b border-[#1e2d40]">
+
+    <div class="max-w-[960px] mx-auto">
+
+        <h2 class="text-[28px] font-bold text-white text-center">
+            Meet the team
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+
+            <div class="bg-[#0d1018] rounded-[14px] p-7 border border-[#1e2d40] text-center">
+
+                <img src="{% static 'images/jalil.jpeg' %}"
+                     class="w-[120px] h-[120px] rounded-full mx-auto object-cover mb-4"
+                     alt="Jalil">
+
+                <p class="text-[15px] font-semibold text-white">
+                    Jalil Wasaya
+                </p>
+
+                <p class="text-[11px] text-[#1D9E75] uppercase mt-1">
+                    Full Stack Developer
+                </p>
+
+            </div>
+
+            <div class="bg-[#0d1018] rounded-[14px] p-7 border border-[#1e2d40] text-center">
+
+                <img src="{% static 'images/chaker.jpeg' %}"
+                     class="w-[120px] h-[120px] rounded-full mx-auto object-cover mb-4"
+                     alt="Chaker">
+
+                <p class="text-[15px] font-semibold text-white">
+                    Chaker Ibrahim
+                </p>
+
+                <p class="text-[11px] text-[#1D9E75] uppercase mt-1">
+                    Full Stack Developer
+                </p>
+
+            </div>
+
+            <div class="bg-[#0d1018] rounded-[14px] p-7 border border-[#1e2d40] text-center">
+
+                <img src="{% static 'images/aws.jpeg' %}"
+                     class="w-[120px] h-[120px] rounded-full mx-auto object-cover mb-4"
+                     alt="Aws">
+
+                <p class="text-[15px] font-semibold text-white">
+                    Aws Sleebi
+                </p>
+
+                <p class="text-[11px] text-[#1D9E75] uppercase mt-1">
+                    Full Stack Developer
+                </p>
+
+            </div>
+
+            <div class="bg-[#0d1018] rounded-[14px] p-7 border border-[#1e2d40] text-center">
+
+                <img src="{% static 'images/husni.jpeg' %}"
+                     class="w-[120px] h-[120px] rounded-full mx-auto object-cover mb-4"
+                     alt="Husni">
+
+                <p class="text-[15px] font-semibold text-white">
+                    Husni Ahmad
+                </p>
+
+                <p class="text-[11px] text-[#1D9E75] uppercase mt-1">
+                    Full Stack Developer
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="bg-[#182130] px-[60px] py-20">
+
+    <div class="max-w-[700px] mx-auto">
+
+        <h2 class="text-[28px] font-bold text-white text-center mb-10">
+            Get in touch with us
+        </h2>
+
+        <form method="POST" class="flex flex-col gap-3">
+
+            {% csrf_token %}
+
+            <input type="text"
+                   placeholder="Your name"
+                   class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg">
+
+            <input type="email"
+                   placeholder="Email address"
+                   class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg">
+
+            <textarea rows="4"
+                      placeholder="Your message"
+                      class="bg-[#141b26] border border-[#1e2d40] p-3 text-white rounded-lg"></textarea>
+
+            <button type="submit"
+                    class="bg-[#1D9E75] hover:bg-[#178a65] text-white px-7 py-3 rounded-lg transition-colors">
+                Send message
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<footer class="bg-[#0d1018] border-t border-[#1e2d40] px-[60px] pb-6 pt-10">
+
+    <div class="flex items-center justify-between mb-6">
+
+        <div class="flex items-center gap-2.5">
+
+            <img src="{% static 'images/smartspendx_icon_only.png' %}"
+                 alt="Logo"
+                 class="w-8 h-8 rounded-full object-cover">
+
+            <p class="text-white text-sm font-semibold">
+                Smart Spend X
+            </p>
+
+        </div>
+
+        <div class="flex gap-7">
+
+            <a href="{% url 'dashboard' %}"
+               class="text-[13px] hover:text-[#1D9E75] transition-colors">
+                Dashboard
+            </a>
+
+            <a href="{% url 'profile' %}"
+               class="text-[13px] hover:text-[#1D9E75] transition-colors">
+                Profile
+            </a>
+
+            <a href="{% url 'settings' %}"
+               class="text-[13px] hover:text-[#1D9E75] transition-colors">
+                Settings
+            </a>
+
+        </div>
+
+    </div>
+
+    <p class="text-xs text-[#555] text-center border-t border-[#1e2d40] pt-5">
+        © 2026 Smart Spend X. All rights reserved. Made with ❤ in Palestine.
+    </p>
+
+</footer>
+
+</body>
+</html>

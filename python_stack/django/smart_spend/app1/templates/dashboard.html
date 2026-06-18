@@ -1,0 +1,398 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Spend X - Dashboard</title>
+
+    <link rel="icon" href="{% static 'image/favicon.png' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+    <style>
+      * {
+        font-family: "Noto Serif", serif;
+      }
+
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+
+      .animate-gradient {
+        background-size: 200% auto;
+        animation: gradientMove 3s linear infinite;
+      }
+
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-[#182130] text-[#b8d5d9] flex flex-col gap-[1.4rem] min-h-screen"
+  >
+    <nav
+      class="h-[12rem] flex justify-between items-center px-4 md:px-16 bg-gradient-to-r from-[#0d1018] via-[#0d1018] to-[#203361]"
+    >
+      <div class="flex flex-col items-center bg-[#0d1018]">
+        <img
+          src="{% static 'images/logo.png' %}"
+          alt="Page Logo"
+          class="w-[100px] h-full object-contain"
+        />
+
+        <h1 class="text-white text-[26px] font-bold">
+          Smart Spend
+          <span
+            class="text-[30px] bg-gradient-to-r from-[#536eda] via-[#3ea8cd] to-[#76549b] bg-clip-text text-transparent animate-gradient"
+          >
+            X
+          </span>
+        </h1>
+
+        <p
+          class="text-[20px] bg-gradient-to-r from-[#3ea8cd] via-[#536eda] to-[#76549b] bg-clip-text text-transparent animate-gradient"
+        >
+          Smarter Money Better Future
+        </p>
+      </div>
+
+      <a
+        href="{% url 'landing' %}"
+        class="rounded-[20px] p-[0.6rem] text-white bg-[#1f2f4e] border-2 border-[#b3b2b6] text-[20px] hover:bg-[#443e45] transition-colors"
+      >
+        Sign Out
+      </a>
+    </nav>
+
+    <main
+      class="flex flex-col md:flex-row min-h-[80vh] gap-[1.4rem] px-4 md:px-0 bg-[#182130]"
+    >
+      <aside
+        class="hidden min-w-[300px] md:block absolute md:relative top-[7rem] md:top-0 left-0 w-full md:w-fit bg-gradient-to-b from-[#0d1018] via-[#0d1018] to-[#1a3a52] z-40 border-b md:border-b-0 border-[#1e2d40]"
+      >
+        <ul
+          class="flex flex-row md:flex-col list-none p-4 overflow-x-auto no-scrollbar"
+        >
+          <li>
+            <a
+              href="{% url 'profile' %}"
+              class="block rounded-[8px] text-xl px-[0.6rem] py-[3.3rem] hover:bg-[#1e2d40]"
+            >
+              Profile
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{% url 'monthly_report' %}"
+              class="block rounded-[8px] text-xl px-[0.6rem] py-[3.3rem] hover:bg-[#1e2d40]"
+            >
+              monthly_report
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{% url 'bill_reminder' %}"
+              class="block rounded-[8px] text-xl px-[0.6rem] py-[3.3rem] hover:bg-[#1e2d40]"
+            >
+              Bill Reminder
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{% url 'expenses' %}"
+              class="block rounded-[8px] text-xl px-[0.6rem] py-[3.3rem] hover:bg-[#1e2d40]"
+            >
+              Add Expense
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{% url 'all_expenses' %}"
+              class="block rounded-[8px] text-xl px-[0.6rem] py-[3.3rem] hover:bg-[#1e2d40]"
+            >
+              All Expenses
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{% url 'settings' %}"
+              class="block rounded-[8px] text-xl px-[0.6rem] py-[3.3rem] hover:bg-[#1e2d40]"
+            >
+              Settings
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="{% url 'about_us' %}"
+              class="block rounded-[8px] text-xl px-[0.6rem] py-[3.3rem] hover:bg-[#1e2d40]"
+            >
+              About Us
+            </a>
+          </li>
+        </ul>
+      </aside>
+
+      <div
+        class="w-full md:w-[85%] p-4 flex flex-col gap-[1.4rem] bg-[#0d1018] flex-1"
+      >
+        <h2 class="text-[28px] text-[#b8d5d9] pb-2 border-b border-[#1e2d40]">
+          Dashboard Overview
+        </h2>
+
+        <p class="text-[20px] text-white font-semibold">
+          Welcome back,
+          <span class="text-[#1D9E75]">
+            {{ request.user.first_name|default:request.user.username }}
+          </span>
+          👋
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <section
+            class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.2rem]"
+          >
+            <h2 class="text-[16px] text-[#4e90bf] uppercase">Total Spend</h2>
+            <p class="text-[26px] text-white font-bold">
+              {{ currency }}{{ total_expenses }}
+            </p>
+            <p class="text-[14px] text-[#536eda]">Updated automatically</p>
+          </section>
+
+          <section
+            onclick="openBudgetModal()"
+            class="bg-[#0d1018] border border-[#1e2d40] hover:border-[#4e90bf] rounded-[12px] p-[1.2rem] cursor-pointer transition-all duration-200 group"
+          >
+            <h2
+              class="text-[16px] text-[#4e90bf] uppercase group-hover:text-white transition-colors"
+            >
+              Monthly Budget
+            </h2>
+            <p class="text-[26px] text-white font-bold">
+              {{ currency }}{{ total_budget }}
+            </p>
+            <p class="text-[14px] text-[#1D9E75] group-hover:underline">
+              Click to edit budget
+            </p>
+          </section>
+
+          <section
+            class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.2rem]"
+          >
+            <h2 class="text-[16px] text-[#4e90bf] uppercase">Open Bills</h2>
+            <p class="text-[26px] text-white font-bold">{{ bills|length }}</p>
+            <p class="text-[14px] text-[#536eda]">Pending bills</p>
+          </section>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-[1.2fr_1.2fr] gap-4 flex-1">
+          <section
+            class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.4rem] flex flex-col gap-4"
+          >
+            <h2 class="text-[20px] text-[#b8d5d9]">Expense Overview</h2>
+
+            <div
+              class="flex flex-col sm:flex-row gap-8 items-start sm:items-center"
+            >
+              <canvas id="donutChart" width="200" height="200"></canvas>
+
+              <ul class="flex flex-col gap-4">
+                {% for expense in expenses %}
+
+                <li class="text-[15px] text-[#b8d5d9]">
+                  {{ expense.category }} — {{ currency }}{{ expense.amount }}
+                </li>
+
+                {% endfor %}
+              </ul>
+            </div>
+          </section>
+
+          <section class="flex flex-col gap-4">
+            <section
+              class="bg-[#0d1018] border border-[#1e2d40] rounded-[12px] p-[1.4rem]"
+            >
+              <h2 class="text-[18px] text-[#b8d5d9]">Recent Expenses</h2>
+
+              {% for expense in expenses %}
+
+              <div class="mt-3 border-b border-[#1e2d40] pb-2">
+                <p class="text-white font-semibold">{{ expense.title }}</p>
+
+                <p class="text-[14px] text-[#536eda]">
+                  {{ currency }}{{ expense.amount }} • {{ expense.category }}
+                </p>
+              </div>
+
+              {% endfor %}
+            </section>
+
+            <a href="{% url 'ai_analysis' %}">
+              <button
+                class="mt-4 px-[1.2rem] py-[0.6rem] rounded-[20px] bg-gradient-to-r from-[#4e90bf] to-[#536eda] text-white text-[15px] font-semibold hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-lg"
+              >
+                Open AI Analysis
+              </button>
+            </a>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <div
+      id="budgetModal"
+      class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4"
+    >
+      <div
+        class="bg-[#0d1018] border-2 border-[#1e2d40] rounded-[12px] p-6 w-full max-w-md shadow-2xl"
+      >
+        <h3
+          class="text-[22px] font-bold text-white mb-4 border-b border-[#1e2d40] pb-2"
+        >
+          Update Monthly Budget
+        </h3>
+        <form method="POST" action="{% url 'update_budget' %}">
+          {% csrf_token %}
+          <div class="mb-4">
+            <label
+              class="block text-[15px] text-[#4e90bf] uppercase font-semibold mb-2"
+              >Monthly Income ({{ currency|default:"₪" }})</label
+            >
+            <input
+              type="number"
+              step="0.01"
+              name="income"
+              required
+              class="w-full bg-[#182130] text-white border border-[#1e2d40] rounded-[8px] px-3 py-2 focus:outline-none focus:border-[#4e90bf]"
+              placeholder="Enter income amount"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-[15px] text-[#4e90bf] uppercase font-semibold mb-2"
+              >Budget Limit Amount ({{ currency|default:"₪" }})</label
+            >
+            <input
+              type="number"
+              step="0.01"
+              name="budget_amount"
+              required
+              class="w-full bg-[#182130] text-white border border-[#1e2d40] rounded-[8px] px-3 py-2 focus:outline-none focus:border-[#4e90bf]"
+              placeholder="Enter budget limit"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              class="block text-[15px] text-[#4e90bf] uppercase font-semibold mb-2"
+              >Category</label
+            >
+            <input
+              type="text"
+              name="category"
+              value="General"
+              required
+              class="w-full bg-[#182130] text-white border border-[#1e2d40] rounded-[8px] px-3 py-2 focus:outline-none focus:border-[#4e90bf]"
+            />
+          </div>
+
+          <div class="flex justify-end gap-3 mt-6">
+            <button
+              type="button"
+              onclick="closeBudgetModal()"
+              class="px-4 py-2 bg-[#1f2f4e] text-white rounded-[8px] border border-[#b3b2b6] hover:bg-[#443e45] transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="px-4 py-2 bg-gradient-to-r from-[#4e90bf] to-[#536eda] text-white font-semibold rounded-[8px] hover:opacity-90 transition-opacity"
+            >
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    {{ chart_labels|json_script:"chart-labels-data" }}
+    {{chart_values|json_script:"chart-values-data" }}
+
+    <script>
+      // Parse the data safely from the JSON scripts above to keep the IDE validator clean
+      const chartLabels = JSON.parse(
+        document.getElementById("chart-labels-data").textContent,
+      );
+      const chartValues = JSON.parse(
+        document.getElementById("chart-values-data").textContent,
+      );
+
+      const myChart = new Chart(document.getElementById("donutChart"), {
+        type: "doughnut",
+        data: {
+          labels: chartLabels,
+          datasets: [
+            {
+              data: chartValues,
+              backgroundColor: [
+                "#4e90bf",
+                "#536eda",
+                "#76549b",
+                "#3ea8cd",
+                "#1D9E75",
+                "#e11d48",
+              ],
+              borderWidth: 0,
+              hoverOffset: 6,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          cutout: "72%",
+          plugins: {
+            legend: { display: false },
+          },
+        },
+      });
+
+      // ADDED: Modal trigger handlers
+      function openBudgetModal() {
+        document.getElementById("budgetModal").classList.remove("hidden");
+      }
+
+      function closeBudgetModal() {
+        document.getElementById("budgetModal").classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>

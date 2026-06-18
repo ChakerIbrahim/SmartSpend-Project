@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dojos and Ninjas</title>
+</head>
+<body>
+
+    <h1>Add Dojo</h1>
+
+    <form action="/create_dojo" method="POST">
+        {% csrf_token %}
+
+        <p>Name:</p>
+        <input type="text" name="name">
+
+        <p>City:</p>
+        <input type="text" name="city">
+
+        <p>State:</p>
+        <input type="text" name="state">
+
+        <br><br>
+        <button type="submit">Add Dojo</button>
+    </form>
+
+    <hr>
+
+    <h1>Add Ninja</h1>
+
+    <form action="/create_ninja" method="POST">
+        {% csrf_token %}
+
+        <p>First Name:</p>
+        <input type="text" name="first_name">
+
+        <p>Last Name:</p>
+        <input type="text" name="last_name">
+
+        <p>Dojo:</p>
+
+        <!-- Display all dojos in dropdown -->
+        <select name="dojo_id">
+
+            {% for dojo in all_dojos %}
+                <option value="{{ dojo.id }}">
+                    {{ dojo.name }}
+                </option>
+            {% endfor %}
+
+        </select>
+
+        <br><br>
+        <button type="submit">Add Ninja</button>
+
+    </form>
+
+    <hr>
+
+    <h1>All Dojos</h1>
+
+    {% for dojo in all_dojos %}
+
+        <h2>
+            <!-- Dojo name + number of ninjas (Bonus)-->
+            Ninjas at the {{ dojo.name }} Dojo - {{ dojo.ninjas.count }}
+
+            <!-- Delete dojo button -->
+            <a href="/delete_dojo/{{ dojo.id }}">
+                <button>Delete</button>
+            </a>
+        </h2>
+
+        <ul>
+
+            <!-- Display all ninjas in this dojo -->
+            {% for ninja in dojo.ninjas.all %}
+
+                <li>
+                    {{ ninja.first_name }}
+                    {{ ninja.last_name }}
+                </li>
+
+            {% empty %}
+
+                <li>No ninjas yet</li>
+
+            {% endfor %}
+
+        </ul>
+
+    {% endfor %}
+
+</body>
+</html>

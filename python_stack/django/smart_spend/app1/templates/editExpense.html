@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Expense | SmartSpend X</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" href="{% static 'images/favicon.png' %}">
+  <style>* { font-family: "Noto Serif", serif; }</style>
+</head>
+<body class="bg-[#182130] text-[#b8d5d9] min-h-screen flex items-center justify-center p-4">
+
+<section class="w-full max-w-3xl bg-[#0d1018] border border-[#1e2d40] rounded-3xl shadow-2xl p-8">
+  <div class="flex justify-between items-start gap-4 border-b border-[#1e2d40] pb-5 mb-6">
+    <div>
+      <h1 class="text-3xl text-white font-bold">Edit Expense</h1>
+      <p class="text-slate-400 mt-2">Update the transaction details and save your changes.</p>
+    </div>
+    <a href="{% url 'all_expenses' %}" class="px-5 py-3 rounded-full bg-white/5 hover:bg-white hover:text-black transition">Back</a>
+  </div>
+
+  <form method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    {% csrf_token %}
+
+    <div class="md:col-span-2">
+      <label class="text-sm text-slate-400">Expense Title</label>
+      <input type="text" name="title" value="{{ expense.title }}" required class="w-full mt-2 p-4 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+    </div>
+
+    <div>
+      <label class="text-sm text-slate-400">Amount {{ currency }}</label>
+      <input type="number" step="0.01" name="amount" value="{{ expense.amount }}" required class="w-full mt-2 p-4 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+    </div>
+
+    <div>
+      <label class="text-sm text-slate-400">Category</label>
+      <select name="category" required class="w-full mt-2 p-4 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+        {% for value, label in categories %}
+          <option value="{{ value }}" {% if expense.category == value %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="md:col-span-2">
+      <label class="text-sm text-slate-400">Date</label>
+      <input type="date" name="date" value="{{ expense.date|date:'Y-m-d' }}" required class="w-full mt-2 p-4 rounded-xl bg-[#182130] border border-[#1e2d40] focus:outline-none focus:border-[#4e90bf] text-white">
+    </div>
+
+    <div class="md:col-span-2 flex flex-col sm:flex-row gap-4 pt-3">
+      <button type="submit" class="flex-1 py-4 rounded-2xl text-white font-bold bg-gradient-to-r from-[#4e90bf] to-[#76549b] hover:opacity-90 transition">Save Changes</button>
+      <a href="{% url 'delete_expense' expense.id %}" class="flex-1 text-center py-4 rounded-2xl text-red-300 font-bold bg-red-500/10 border border-red-500/30 hover:bg-red-500/20 transition">Delete Expense</a>
+    </div>
+  </form>
+</section>
+
+</body>
+</html>

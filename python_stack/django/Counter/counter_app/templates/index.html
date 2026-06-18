@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Counter</title>
+</head>
+
+<body>
+
+    <h1>Django Counter</h1>
+
+    <h2>Page Visits: {{ visits }}</h2>
+
+    <h2>Counter: {{ counter }}</h2>
+
+    <form action="/add_two/" method="POST">
+        {% csrf_token %}
+        <button type="submit">+2</button>
+    </form>
+
+    <br>
+
+    <form action="/destroy_session/" method="POST">
+        {% csrf_token %}
+        <button type="submit">Reset</button>
+    </form>
+
+    <br>
+
+    <form action="/increment/" method="POST">
+
+        {% csrf_token %}
+
+        <input type="number" name="number">
+
+        <button type="submit">Add</button>
+
+    </form>
+
+</body>
+</html>

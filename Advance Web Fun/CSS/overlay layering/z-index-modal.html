@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-index</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Welcome!</h1>
+    <p>This is a simple web page example demonstrating how the z-index property can place the modal above everything
+    </p>
+    <div class="card">
+        <h2>About</h2>
+        <p>This card demonstrates regular page content stays behind the modal window</p>
+    </div>
+    <div class="overlay"></div>
+
+    <div class="modal">
+        <img src="circle-check-regular.svg" alt="check">
+        <h2>Success Message Title</h2>
+        <p>Well done, you pressed a button</p>
+        <button id="closeModal" onclick="closeBtn()">ok</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
